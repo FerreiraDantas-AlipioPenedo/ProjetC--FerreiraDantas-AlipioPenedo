@@ -1,25 +1,3 @@
-C:\Users\Joao-Paulo.ALIPIO-PE\Desktop\Pyramid\Test\bin\Debug\Test.exe.config
-C:\Users\Joao-Paulo.ALIPIO-PE\Desktop\Pyramid\Test\bin\Debug\Test.exe
-C:\Users\Joao-Paulo.ALIPIO-PE\Desktop\Pyramid\Test\bin\Debug\Test.pdb
-C:\Users\Joao-Paulo.ALIPIO-PE\Desktop\Pyramid\Test\obj\Debug\Pyramid.csprojAssemblyReference.cache
-C:\Users\Joao-Paulo.ALIPIO-PE\Desktop\Pyramid\Test\obj\Debug\Pyramid.Form1.resources
-C:\Users\Joao-Paulo.ALIPIO-PE\Desktop\Pyramid\Test\obj\Debug\Test.Properties.Resources.resources
-C:\Users\Joao-Paulo.ALIPIO-PE\Desktop\Pyramid\Test\obj\Debug\Pyramid.csproj.GenerateResource.cache
-C:\Users\Joao-Paulo.ALIPIO-PE\Desktop\Pyramid\Test\obj\Debug\Pyramid.csproj.CoreCompileInputs.cache
-C:\Users\Joao-Paulo.ALIPIO-PE\Desktop\Pyramid\Test\obj\Debug\Test.exe
-C:\Users\Joao-Paulo.ALIPIO-PE\Desktop\Pyramid\Test\obj\Debug\Test.pdb
-<<<<<<< HEAD
-C:\Users\Joao-Paulo.ALIPIO-PE\Documents\ProjetCSharp-Filipe-Joao\Pyramid\Test\obj\Debug\Pyramid.csprojAssemblyReference.cache
-C:\Users\Joao-Paulo.ALIPIO-PE\Documents\ProjetCSharp-Filipe-Joao\Pyramid\Test\obj\Debug\Pyramid.Form1.resources
-C:\Users\Joao-Paulo.ALIPIO-PE\Documents\ProjetCSharp-Filipe-Joao\Pyramid\Test\obj\Debug\Test.Properties.Resources.resources
-C:\Users\Joao-Paulo.ALIPIO-PE\Documents\ProjetCSharp-Filipe-Joao\Pyramid\Test\obj\Debug\Pyramid.csproj.GenerateResource.cache
-C:\Users\Joao-Paulo.ALIPIO-PE\Documents\ProjetCSharp-Filipe-Joao\Pyramid\Test\obj\Debug\Pyramid.csproj.CoreCompileInputs.cache
-C:\Users\Joao-Paulo.ALIPIO-PE\Documents\ProjetCSharp-Filipe-Joao\Pyramid\Test\obj\Debug\Test.exe
-C:\Users\Joao-Paulo.ALIPIO-PE\Documents\ProjetCSharp-Filipe-Joao\Pyramid\Test\obj\Debug\Test.pdb
-C:\Users\Joao-Paulo.ALIPIO-PE\Documents\ProjetCSharp-Filipe-Joao\Pyramid\Test\bin\Debug\Test.exe.config
-C:\Users\Joao-Paulo.ALIPIO-PE\Documents\ProjetCSharp-Filipe-Joao\Pyramid\Test\bin\Debug\Test.exe
-C:\Users\Joao-Paulo.ALIPIO-PE\Documents\ProjetCSharp-Filipe-Joao\Pyramid\Test\bin\Debug\Test.pdb
-=======
 C:\Users\Filipe.FERREIRA-DANT\Documents\Projet C#\Pyramid\Test\bin\Debug\Test.exe.config
 C:\Users\Filipe.FERREIRA-DANT\Documents\Projet C#\Pyramid\Test\bin\Debug\Test.exe
 C:\Users\Filipe.FERREIRA-DANT\Documents\Projet C#\Pyramid\Test\bin\Debug\Test.pdb
@@ -30,6 +8,7 @@ C:\Users\Filipe.FERREIRA-DANT\Documents\Projet C#\Pyramid\Test\obj\Debug\Pyramid
 C:\Users\Filipe.FERREIRA-DANT\Documents\Projet C#\Pyramid\Test\obj\Debug\Pyramid.csproj.CoreCompileInputs.cache
 C:\Users\Filipe.FERREIRA-DANT\Documents\Projet C#\Pyramid\Test\obj\Debug\Test.exe
 C:\Users\Filipe.FERREIRA-DANT\Documents\Projet C#\Pyramid\Test\obj\Debug\Test.pdb
+<<<<<<< HEAD
 >>>>>>> dd621a94637f0d04ebbe77546c0c500dda9def36
 C:\Users\Joao-Paulo.ALIPIO-PE\Documents\ProjetC--FerreiraDantas-AlipioPenedo\Pyramid\Test\obj\Debug\Pyramid.csprojAssemblyReference.cache
 C:\Users\Joao-Paulo.ALIPIO-PE\Documents\ProjetC--FerreiraDantas-AlipioPenedo\Pyramid\Test\obj\Debug\Pyramid.Form1.resources
@@ -41,3 +20,5 @@ C:\Users\Joao-Paulo.ALIPIO-PE\Documents\ProjetC--FerreiraDantas-AlipioPenedo\Pyr
 C:\Users\Joao-Paulo.ALIPIO-PE\Documents\ProjetC--FerreiraDantas-AlipioPenedo\Pyramid\Test\bin\Debug\Test.exe.config
 C:\Users\Joao-Paulo.ALIPIO-PE\Documents\ProjetC--FerreiraDantas-AlipioPenedo\Pyramid\Test\bin\Debug\Test.exe
 C:\Users\Joao-Paulo.ALIPIO-PE\Documents\ProjetC--FerreiraDantas-AlipioPenedo\Pyramid\Test\bin\Debug\Test.pdb
+=======
+>>>>>>> d4caf44d4896d585f9d5f8a8d78f11f092bb0249
