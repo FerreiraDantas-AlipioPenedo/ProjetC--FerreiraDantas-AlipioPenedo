@@ -18,20 +18,12 @@ namespace Pyramid
         string pathCartes = @"..\Cartes.txt";
         Random rd = new Random();        
         List<Image> Cartes = CarteGenerator.getToutesCartes(0.5);
-<<<<<<< HEAD
-        int ClickScore = 0;
-=======
         List<Image> CartesCheckList = CarteGenerator.getToutesCartes(0.5);
         int nbClickNextCard = 0;       
->>>>>>> d4caf44d4896d585f9d5f8a8d78f11f092bb0249
 
         public Form1()
         {
             InitializeComponent();
-<<<<<<< HEAD
-
-=======
->>>>>>> d4caf44d4896d585f9d5f8a8d78f11f092bb0249
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -39,12 +31,7 @@ namespace Pyramid
 
         }
         public void MyPaint()
-<<<<<<< HEAD
-        {
-
-=======
         {            
->>>>>>> d4caf44d4896d585f9d5f8a8d78f11f092bb0249
             PictureBox[] boxesCarte =
             {
                 imgCarte1, imgCarte2, imgCarte3, imgCarte4, imgCarte5, imgCarte6, imgCarte7, imgCarte8, imgCarte9, imgCarte10, imgCarte11,
@@ -60,11 +47,7 @@ namespace Pyramid
             }
 
             imgNouvelleCarte.Image = CarteGenerator.getDos(0.5);
-<<<<<<< HEAD
-
-=======
             Shuffle(Cartes);
->>>>>>> d4caf44d4896d585f9d5f8a8d78f11f092bb0249
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -81,35 +64,20 @@ namespace Pyramid
 
         private void cmdAfficherScores_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            if (ClickScore == 0)
-=======
 
             using (var reader = new StreamReader(fichierScores))
->>>>>>> d4caf44d4896d585f9d5f8a8d78f11f092bb0249
             {
-                using (var reader = new StreamReader(fichierScores))
+                while (!reader.EndOfStream)
                 {
-                    while (!reader.EndOfStream)
-                    {
-                        string line = reader.ReadLine();
-                        lstScores.Items.Add(line);
-                    }
+                    string line = reader.ReadLine();
 
+                    lstScores.Items.Add(line);
                 }
-                lstScores.Visible = true;
-                cmdAfficherScores.Visible = false;
-                cmdCacherScores.Visible = true;
-            }
-            else
-            {
-                lstScores.Visible = true;
-                cmdAfficherScores.Visible = false;
-                cmdCacherScores.Visible = true;
             }
 
-
-
+            lstScores.Visible = true;
+            cmdAfficherScores.Visible = false;
+            cmdCacherScores.Visible = true;
         }
 
         private void cmdCacherScores_Click(object sender, EventArgs e)
@@ -117,7 +85,6 @@ namespace Pyramid
             lstScores.Visible = false;
             cmdAfficherScores.Visible = true;
             cmdCacherScores.Visible = false;
-            ClickScore = 1;
         }
 
         private void Shuffle<T>(List<T> list)
@@ -138,20 +105,13 @@ namespace Pyramid
             var randomList = Cartes.OrderBy(x => rd.Next()).ToList();
             nbClickNextCard++;
 
-<<<<<<< HEAD
-            if (Cartes.Count() > 1)
-=======
             if (nbClickNextCard == 1)
->>>>>>> d4caf44d4896d585f9d5f8a8d78f11f092bb0249
             {
                 imgNouvelleCarte.Image = Cartes.ElementAt(0);
                 Cartes.RemoveAt(0);
             }
             else
             {
-<<<<<<< HEAD
-                cmdSecondPlate.Visible = true;
-=======
                 if (Cartes.Count() > 0)
                 {
                     imgLastCarte.Image = imgNouvelleCarte.Image;
@@ -199,9 +159,7 @@ namespace Pyramid
 
         private void imgNouvelleCarte_Click(object sender, EventArgs e)
         {
->>>>>>> d4caf44d4896d585f9d5f8a8d78f11f092bb0249
 
-            }
         }
     }
 }
