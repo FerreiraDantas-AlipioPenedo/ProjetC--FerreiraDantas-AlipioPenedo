@@ -18,19 +18,20 @@ namespace Pyramid
         Random rd = new Random();
         int random2 = 0;
         List<Image> Cartes = CarteGenerator.getToutesCartes(0.5);
+        int ClickScore = 0;
 
         public Form1()
         {
             InitializeComponent();
-            
-        }  
+
+        }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
         public void MyPaint()
-        {    
+        {
 
             PictureBox[] boxesCarte =
             {
@@ -45,7 +46,7 @@ namespace Pyramid
                 Cartes.RemoveAt(random);
             }
 
-            imgNouvelleCarte = CarteGenerator.getDos(0.5);          
+            imgNouvelleCarte.Image = CarteGenerator.getDos(0.5);
 
         }
 
@@ -61,20 +62,30 @@ namespace Pyramid
 
         private void cmdAfficherScores_Click(object sender, EventArgs e)
         {
-            
-            using (var reader = new StreamReader(fichierScores))
+            if (ClickScore == 0)
             {
-                while (!reader.EndOfStream)
+                using (var reader = new StreamReader(fichierScores))
                 {
-                    string line = reader.ReadLine();
+                    while (!reader.EndOfStream)
+                    {
+                        string line = reader.ReadLine();
+                        lstScores.Items.Add(line);
+                    }
 
-                    lstScores.Items.Add(line);
                 }
+                lstScores.Visible = true;
+                cmdAfficherScores.Visible = false;
+                cmdCacherScores.Visible = true;
+            }
+            else
+            {
+                lstScores.Visible = true;
+                cmdAfficherScores.Visible = false;
+                cmdCacherScores.Visible = true;
             }
 
-            lstScores.Visible = true;
-            cmdAfficherScores.Visible = false;
-            cmdCacherScores.Visible = true;
+
+
         }
 
         private void cmdCacherScores_Click(object sender, EventArgs e)
@@ -82,6 +93,7 @@ namespace Pyramid
             lstScores.Visible = false;
             cmdAfficherScores.Visible = true;
             cmdCacherScores.Visible = false;
+            ClickScore = 1;
         }
 
         private void cmdNextCarte_Click(object sender, EventArgs e)
@@ -89,7 +101,7 @@ namespace Pyramid
             random2 = rd.Next(0, Cartes.Count);
             imgNouvelleCarte.Image = Cartes.ElementAt(random2);
 
-            if (Cartes.Count() != 0)
+            if (Cartes.Count() > 1)
             {
                 imgLastCarte.Image = imgNouvelleCarte.Image;
                 Cartes.RemoveAt(random2);
@@ -98,9 +110,8 @@ namespace Pyramid
             else
             {
                 cmdSecondPlate.Visible = true;
-            }
-            
 
+            }
         }
     }
 }
