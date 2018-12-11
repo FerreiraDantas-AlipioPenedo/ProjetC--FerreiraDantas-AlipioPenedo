@@ -327,6 +327,7 @@
             this.imgNouvelleCarte.Size = new System.Drawing.Size(75, 100);
             this.imgNouvelleCarte.TabIndex = 29;
             this.imgNouvelleCarte.TabStop = false;
+            this.imgNouvelleCarte.Click += new System.EventHandler(this.imgNouvelleCarte_Click);
             // 
             // imgLastCarte
             // 
@@ -335,6 +336,7 @@
             this.imgLastCarte.Size = new System.Drawing.Size(75, 100);
             this.imgLastCarte.TabIndex = 30;
             this.imgLastCarte.TabStop = false;
+            this.imgLastCarte.Click += new System.EventHandler(this.imgLastCarte_Click);
             // 
             // cmdNouvellePartie
             // 
@@ -344,6 +346,7 @@
             this.cmdNouvellePartie.TabIndex = 31;
             this.cmdNouvellePartie.Text = "Nouvelle Partie";
             this.cmdNouvellePartie.UseVisualStyleBackColor = true;
+            this.cmdNouvellePartie.Click += new System.EventHandler(this.cmdNouvellePartie_Click);
             // 
             // cmdAfficherScores
             // 
