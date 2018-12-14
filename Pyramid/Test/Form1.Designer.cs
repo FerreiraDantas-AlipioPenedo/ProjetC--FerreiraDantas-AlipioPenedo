@@ -103,6 +103,7 @@
             this.imgCarte1.Size = new System.Drawing.Size(75, 100);
             this.imgCarte1.TabIndex = 1;
             this.imgCarte1.TabStop = false;
+            this.imgCarte1.Click += new System.EventHandler(this.imgCarte1_Click);
             // 
             // imgCarte2
             // 
@@ -111,6 +112,7 @@
             this.imgCarte2.Size = new System.Drawing.Size(75, 100);
             this.imgCarte2.TabIndex = 2;
             this.imgCarte2.TabStop = false;
+            this.imgCarte2.Click += new System.EventHandler(this.imgCarte2_Click);
             // 
             // imgCarte3
             // 
@@ -119,6 +121,7 @@
             this.imgCarte3.Size = new System.Drawing.Size(75, 100);
             this.imgCarte3.TabIndex = 3;
             this.imgCarte3.TabStop = false;
+            this.imgCarte3.Click += new System.EventHandler(this.imgCarte3_Click);
             // 
             // imgCarte4
             // 
@@ -319,6 +322,7 @@
             this.imgCarte28.Size = new System.Drawing.Size(75, 100);
             this.imgCarte28.TabIndex = 28;
             this.imgCarte28.TabStop = false;
+            this.imgCarte28.Click += new System.EventHandler(this.imgCarte28_Click);
             // 
             // imgNouvelleCarte
             // 

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Pyramid
 {
-    class Carte
+    public class Carte
     {
         public int valeur;
         public Image carte;
@@ -18,16 +19,9 @@ namespace Pyramid
             this.carte = Carte;        
         }
 
-        public int GetCarteValeur(Image Carte)
+        public int GetCarteValeur()
         {
-            /*foreach(Image carte in Cartes)
-            {
-                if(carte == Carte)
-                {
-                    return valeur;
-                }
-            }*/
-            return 0;
+            return this.valeur;
         }
 
         public Image GetImage()

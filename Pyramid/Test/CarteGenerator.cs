@@ -93,7 +93,7 @@ namespace Pyramid
             return getCarteImage(1950, 400, size);
         }
 
-        public static List<Image> getToutesCartes(double size)
+        public static List<Carte> getToutesCartes(double size)
         {
             List<Image> Cartes = new List<Image>();
             List<Carte> Carte = new List<Carte>();
@@ -215,7 +215,7 @@ namespace Pyramid
             Carte.Add(new Carte(13, getCarte(SorteCarte.Trefle, ValeurCarte.Roi, size)));
 
             //return the list Cartes
-            return Cartes;
+            return Carte;
         }
     }
 }

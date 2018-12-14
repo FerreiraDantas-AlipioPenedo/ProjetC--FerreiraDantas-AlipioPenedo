@@ -17,9 +17,11 @@ namespace Pyramid
         string fichierScores = @"..\Scores.txt";
         string pathCartes = @"..\Cartes.txt";
         Random rd = new Random();        
-        List<Image> Cartes = CarteGenerator.getToutesCartes(0.5);
-        List<Image> CartesCheckList = CarteGenerator.getToutesCartes(0.5);
-        int nbClickNextCard = 0;       
+        List<Carte> Cartes = CarteGenerator.getToutesCartes(0.5);
+        List<Carte> CartesCheckList = new List<Carte>();
+        int nbClickNextCard = 0;
+        int i = 0;
+        int tour = 3;
 
         public Form1()
         {
@@ -41,10 +43,12 @@ namespace Pyramid
 
             for (int i = 0; i <= boxesCarte.Count()-1; i++)
             {
-                int random = rd.Next(0, Cartes.Count());
-                boxesCarte[i].Image = Cartes.ElementAt(random);
-                Cartes.RemoveAt(random);
+                Shuffle(Cartes);
+                boxesCarte[i].Image = Cartes.ElementAt(0).GetImage();
+                CartesCheckList.Add(Cartes.ElementAt(0));
+                Cartes.RemoveAt(0);
             }
+
 
             imgNouvelleCarte.Image = CarteGenerator.getDos(0.5);
             Shuffle(Cartes);
@@ -52,9 +56,7 @@ namespace Pyramid
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MyPaint();
-
-
+            MyPaint();            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -91,8 +93,8 @@ namespace Pyramid
         {
             for (int i = 0; i < 100; i++)
             {
-                int index1 = rd.Next(0, list.Count - 1);
-                int index2 = rd.Next(0, list.Count - 1);
+                int index1 = rd.Next(0, list.Count );
+                int index2 = rd.Next(0, list.Count );
                 T o = list[index1];
                 list[index1] = list[index2];
                 list[index2] = o;
@@ -100,66 +102,168 @@ namespace Pyramid
         }
 
         private void cmdNextCarte_Click(object sender, EventArgs e)
-        {
-            int random2 = rd.Next(0, Cartes.Count);
-            var randomList = Cartes.OrderBy(x => rd.Next()).ToList();
+        {         
             nbClickNextCard++;
-
             if (nbClickNextCard == 1)
-            {
-                imgNouvelleCarte.Image = Cartes.ElementAt(0);
-                Cartes.RemoveAt(0);
+                {
+                imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
+                imgNouvelleCarte.Visible = true;
+                imgLastCarte.Visible = false;
+                //MessageBox.Show(Cartes.ElementAt(i).GetCarteValeur().ToString());
+                //Cartes.RemoveAt(0);
+                i++;
             }
             else
             {
-                if (Cartes.Count() > 0)
+                if (i <= 23 )
                 {
                     imgLastCarte.Image = imgNouvelleCarte.Image;
-                    imgNouvelleCarte.Image = Cartes.ElementAt(0);
-                    Cartes.RemoveAt(0);
+                    imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
+                    imgLastCarte.Visible = true;
+                    i++;
                 }
                 else
                 {
-                    imgLastCarte.Image = imgNouvelleCarte.Image;
+                    imgLastCarte.Image = imgNouvelleCarte.Image;               
                     cmdSecondPlate.Visible = true;
                     imgNouvelleCarte.Visible = false;
+                    i = 0;
+                    nbClickNextCard = 0;
+                    tour--;
                 }
-            }          
+                
+            }
+           
         }
 
         private void imgLastCarte_Click(object sender, EventArgs e)
         {
-            int count = 1;
-            foreach (Image c in CartesCheckList)
-            {
-                if (imgLastCarte.Image.Equals(c))
-                {
-                    MessageBox.Show(count.ToString());
-                    count = 0;
-                    break;
-                }
-                else
-                {
-                    if(count == 13)
-                    {
-                        count = 1;
-                    }
-                    else
-                    {
-                        count++;
-                    }                    
-                }
-            }            
+            //MessageBox.Show(Cartes.ElementAt(0).GetCarteValeur().ToString());          
         }
+        private void imgNouvelleCarte_Click(object sender, EventArgs e)
+        {
 
+        }
         private void cmdNouvellePartie_Click(object sender, EventArgs e)
         {
             //MyPaint();
         }
-
-        private void imgNouvelleCarte_Click(object sender, EventArgs e)
+        private void ClickSurPlateau(int nbCarte)
         {
+            MessageBox.Show(CartesCheckList.ElementAt(nbCarte).GetCarteValeur().ToString());
+        }
 
+        private void imgCarte1_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(0);
+        }
+        private void imgCarte2_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(1);
+        }
+        private void imgCarte3_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(2);
+        }
+        private void imgCarte4_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(3);
+        }
+        private void imgCarte5_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(4);
+        }
+        private void imgCarte6_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(5);
+        }
+        private void imgCarte7_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(6);
+        }
+        private void imgCarte8_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(7);
+        }
+        private void imgCarte9_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(8);
+        }
+        private void imgCarte10_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(9);
+        }
+        private void imgCarte11_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(10);
+        }
+        private void imgCarte12_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(11);
+        }
+        private void imgCarte13_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(12);
+        }
+        private void imgCarte14_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(13);
+        }
+        private void imgCarte15_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(14);
+        }
+        private void imgCarte16_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(15);
+        }
+        private void imgCarte17_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(16);
+        }
+        private void imgCarte18_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(17);
+        }
+        private void imgCarte19_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(18);
+        }
+        private void imgCarte20_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(19);
+        }
+        private void imgCarte21_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(20);
+        }
+        private void imgCarte22_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(21);
+        }
+        private void imgCarte23_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(22);
+        }
+        private void imgCarte24_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(23);
+        }
+        private void imgCarte25_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(24);
+        }
+        private void imgCarte26_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(25);
+        }
+        private void imgCarte27_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(26);
+        }
+        private void imgCarte28_Click(object sender, EventArgs e)
+        {
+            ClickSurPlateau(27);
         }
     }
 }
