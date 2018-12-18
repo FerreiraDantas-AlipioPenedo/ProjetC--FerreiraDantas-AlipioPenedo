@@ -22,6 +22,8 @@ namespace Pyramid
         int nbClickNextCard = 0;
         int i = 0;
         int tour = 3;
+        int FirstTime = 0;
+        string PseudoUser;
 
         public Form1()
         {
@@ -56,7 +58,13 @@ namespace Pyramid
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MyPaint();            
+            grpInfoUser.Visible = true;
+            if (grpInfoUser.Visible == true)
+            {
+                cmdAfficherScores.Enabled = false;
+                cmdNextCarte.Enabled = false;
+                cmdNouvellePartie.Enabled = false;
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -66,20 +74,26 @@ namespace Pyramid
 
         private void cmdAfficherScores_Click(object sender, EventArgs e)
         {
-
+            
             using (var reader = new StreamReader(fichierScores))
             {
+                
                 while (!reader.EndOfStream)
                 {
                     string line = reader.ReadLine();
 
-                    lstScores.Items.Add(line);
+                    if(FirstTime == 0)
+                    {
+                        lstScores.Items.Add(line);
+                    }
                 }
             }
-
+            
             lstScores.Visible = true;
             cmdAfficherScores.Visible = false;
             cmdCacherScores.Visible = true;
+            FirstTime++;
+
         }
 
         private void cmdCacherScores_Click(object sender, EventArgs e)
@@ -264,6 +278,16 @@ namespace Pyramid
         private void imgCarte28_Click(object sender, EventArgs e)
         {
             ClickSurPlateau(27);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PseudoUser = txtPseudoUser.Text;
+            grpInfoUser.Visible = false;
+            cmdAfficherScores.Enabled = true;
+            cmdNextCarte.Enabled = true;
+            cmdNouvellePartie.Enabled = true;
+            MyPaint();
         }
     }
 }

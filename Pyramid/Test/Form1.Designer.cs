@@ -64,6 +64,10 @@
             this.cmdCacherScores = new System.Windows.Forms.Button();
             this.cmdNextCarte = new System.Windows.Forms.Button();
             this.cmdSecondPlate = new System.Windows.Forms.Button();
+            this.grpInfoUser = new System.Windows.Forms.GroupBox();
+            this.txtPseudoUser = new System.Windows.Forms.TextBox();
+            this.lblPseudo = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgCarte1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCarte2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCarte3)).BeginInit();
@@ -94,6 +98,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgCarte28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgNouvelleCarte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgLastCarte)).BeginInit();
+            this.grpInfoUser.SuspendLayout();
             this.SuspendLayout();
             // 
             // imgCarte1
@@ -402,12 +407,52 @@
             this.cmdSecondPlate.UseVisualStyleBackColor = true;
             this.cmdSecondPlate.Visible = false;
             // 
+            // grpInfoUser
+            // 
+            this.grpInfoUser.BackColor = System.Drawing.SystemColors.Menu;
+            this.grpInfoUser.Controls.Add(this.button1);
+            this.grpInfoUser.Controls.Add(this.lblPseudo);
+            this.grpInfoUser.Controls.Add(this.txtPseudoUser);
+            this.grpInfoUser.Location = new System.Drawing.Point(302, 126);
+            this.grpInfoUser.Name = "grpInfoUser";
+            this.grpInfoUser.Size = new System.Drawing.Size(203, 208);
+            this.grpInfoUser.TabIndex = 37;
+            this.grpInfoUser.TabStop = false;
+            this.grpInfoUser.Text = "Informations utilisateur";
+            // 
+            // txtPseudoUser
+            // 
+            this.txtPseudoUser.Location = new System.Drawing.Point(21, 82);
+            this.txtPseudoUser.Name = "txtPseudoUser";
+            this.txtPseudoUser.Size = new System.Drawing.Size(146, 20);
+            this.txtPseudoUser.TabIndex = 0;
+            // 
+            // lblPseudo
+            // 
+            this.lblPseudo.AutoSize = true;
+            this.lblPseudo.Location = new System.Drawing.Point(18, 66);
+            this.lblPseudo.Name = "lblPseudo";
+            this.lblPseudo.Size = new System.Drawing.Size(101, 13);
+            this.lblPseudo.TabIndex = 1;
+            this.lblPseudo.Text = "Votre pseudonyme :";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(21, 117);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Valider";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
             this.ClientSize = new System.Drawing.Size(812, 631);
+            this.Controls.Add(this.grpInfoUser);
             this.Controls.Add(this.cmdSecondPlate);
             this.Controls.Add(this.cmdNextCarte);
             this.Controls.Add(this.cmdCacherScores);
@@ -477,6 +522,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgCarte28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgNouvelleCarte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgLastCarte)).EndInit();
+            this.grpInfoUser.ResumeLayout(false);
+            this.grpInfoUser.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -519,6 +566,10 @@
         private System.Windows.Forms.Button cmdCacherScores;
         private System.Windows.Forms.Button cmdNextCarte;
         private System.Windows.Forms.Button cmdSecondPlate;
+        private System.Windows.Forms.GroupBox grpInfoUser;
+        private System.Windows.Forms.Label lblPseudo;
+        private System.Windows.Forms.TextBox txtPseudoUser;
+        private System.Windows.Forms.Button button1;
     }
 }
 
