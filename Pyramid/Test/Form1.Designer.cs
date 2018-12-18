@@ -130,6 +130,7 @@
             this.imgCarte4.Size = new System.Drawing.Size(75, 100);
             this.imgCarte4.TabIndex = 4;
             this.imgCarte4.TabStop = false;
+            this.imgCarte4.Click += new System.EventHandler(this.imgCarte4_Click_1);
             // 
             // imgCarte6
             // 
@@ -138,6 +139,7 @@
             this.imgCarte6.Size = new System.Drawing.Size(75, 100);
             this.imgCarte6.TabIndex = 5;
             this.imgCarte6.TabStop = false;
+            this.imgCarte6.Click += new System.EventHandler(this.imgCarte6_Click);
             // 
             // imgCarte5
             // 
@@ -146,6 +148,7 @@
             this.imgCarte5.Size = new System.Drawing.Size(75, 100);
             this.imgCarte5.TabIndex = 6;
             this.imgCarte5.TabStop = false;
+            this.imgCarte5.Click += new System.EventHandler(this.imgCarte5_Click);
             // 
             // imgCarte7
             // 
@@ -154,6 +157,7 @@
             this.imgCarte7.Size = new System.Drawing.Size(75, 100);
             this.imgCarte7.TabIndex = 7;
             this.imgCarte7.TabStop = false;
+            this.imgCarte7.Click += new System.EventHandler(this.imgCarte7_Click);
             // 
             // imgCarte8
             // 
@@ -162,6 +166,7 @@
             this.imgCarte8.Size = new System.Drawing.Size(75, 100);
             this.imgCarte8.TabIndex = 8;
             this.imgCarte8.TabStop = false;
+            this.imgCarte8.Click += new System.EventHandler(this.imgCarte8_Click);
             // 
             // imgCarte9
             // 
@@ -170,6 +175,7 @@
             this.imgCarte9.Size = new System.Drawing.Size(75, 100);
             this.imgCarte9.TabIndex = 9;
             this.imgCarte9.TabStop = false;
+            this.imgCarte9.Click += new System.EventHandler(this.imgCarte9_Click);
             // 
             // imgCarte10
             // 
@@ -178,6 +184,7 @@
             this.imgCarte10.Size = new System.Drawing.Size(75, 100);
             this.imgCarte10.TabIndex = 10;
             this.imgCarte10.TabStop = false;
+            this.imgCarte10.Click += new System.EventHandler(this.imgCarte10_Click);
             // 
             // imgCarte11
             // 
@@ -186,6 +193,7 @@
             this.imgCarte11.Size = new System.Drawing.Size(75, 100);
             this.imgCarte11.TabIndex = 11;
             this.imgCarte11.TabStop = false;
+            this.imgCarte11.Click += new System.EventHandler(this.imgCarte11_Click);
             // 
             // imgCarte15
             // 
@@ -194,6 +202,7 @@
             this.imgCarte15.Size = new System.Drawing.Size(75, 100);
             this.imgCarte15.TabIndex = 12;
             this.imgCarte15.TabStop = false;
+            this.imgCarte15.Click += new System.EventHandler(this.imgCarte15_Click);
             // 
             // imgCarte12
             // 
@@ -202,6 +211,7 @@
             this.imgCarte12.Size = new System.Drawing.Size(75, 100);
             this.imgCarte12.TabIndex = 13;
             this.imgCarte12.TabStop = false;
+            this.imgCarte12.Click += new System.EventHandler(this.imgCarte12_Click);
             // 
             // imgCarte13
             // 
@@ -210,6 +220,7 @@
             this.imgCarte13.Size = new System.Drawing.Size(75, 100);
             this.imgCarte13.TabIndex = 14;
             this.imgCarte13.TabStop = false;
+            this.imgCarte13.Click += new System.EventHandler(this.imgCarte13_Click);
             // 
             // imgCarte14
             // 
@@ -218,6 +229,7 @@
             this.imgCarte14.Size = new System.Drawing.Size(75, 100);
             this.imgCarte14.TabIndex = 15;
             this.imgCarte14.TabStop = false;
+            this.imgCarte14.Click += new System.EventHandler(this.imgCarte14_Click);
             // 
             // imgCarte16
             // 
@@ -226,6 +238,7 @@
             this.imgCarte16.Size = new System.Drawing.Size(75, 100);
             this.imgCarte16.TabIndex = 16;
             this.imgCarte16.TabStop = false;
+            this.imgCarte16.Click += new System.EventHandler(this.imgCarte16_Click);
             // 
             // imgCarte17
             // 
@@ -234,6 +247,7 @@
             this.imgCarte17.Size = new System.Drawing.Size(75, 100);
             this.imgCarte17.TabIndex = 17;
             this.imgCarte17.TabStop = false;
+            this.imgCarte17.Click += new System.EventHandler(this.imgCarte17_Click);
             // 
             // imgCarte18
             // 
@@ -242,6 +256,7 @@
             this.imgCarte18.Size = new System.Drawing.Size(75, 100);
             this.imgCarte18.TabIndex = 18;
             this.imgCarte18.TabStop = false;
+            this.imgCarte18.Click += new System.EventHandler(this.imgCarte18_Click);
             // 
             // imgCarte19
             // 
@@ -250,6 +265,7 @@
             this.imgCarte19.Size = new System.Drawing.Size(75, 100);
             this.imgCarte19.TabIndex = 19;
             this.imgCarte19.TabStop = false;
+            this.imgCarte19.Click += new System.EventHandler(this.imgCarte19_Click);
             // 
             // imgCarte20
             // 
@@ -258,6 +274,7 @@
             this.imgCarte20.Size = new System.Drawing.Size(75, 100);
             this.imgCarte20.TabIndex = 20;
             this.imgCarte20.TabStop = false;
+            this.imgCarte20.Click += new System.EventHandler(this.imgCarte20_Click);
             // 
             // imgCarte21
             // 
@@ -266,6 +283,7 @@
             this.imgCarte21.Size = new System.Drawing.Size(75, 100);
             this.imgCarte21.TabIndex = 21;
             this.imgCarte21.TabStop = false;
+            this.imgCarte21.Click += new System.EventHandler(this.imgCarte21_Click);
             // 
             // imgCarte22
             // 
@@ -274,6 +292,7 @@
             this.imgCarte22.Size = new System.Drawing.Size(75, 100);
             this.imgCarte22.TabIndex = 22;
             this.imgCarte22.TabStop = false;
+            this.imgCarte22.Click += new System.EventHandler(this.imgCarte22_Click);
             // 
             // imgCarte23
             // 
@@ -282,6 +301,7 @@
             this.imgCarte23.Size = new System.Drawing.Size(75, 100);
             this.imgCarte23.TabIndex = 23;
             this.imgCarte23.TabStop = false;
+            this.imgCarte23.Click += new System.EventHandler(this.imgCarte23_Click);
             // 
             // imgCarte24
             // 
@@ -290,6 +310,7 @@
             this.imgCarte24.Size = new System.Drawing.Size(75, 100);
             this.imgCarte24.TabIndex = 24;
             this.imgCarte24.TabStop = false;
+            this.imgCarte24.Click += new System.EventHandler(this.imgCarte24_Click);
             // 
             // imgCarte25
             // 
@@ -298,6 +319,7 @@
             this.imgCarte25.Size = new System.Drawing.Size(75, 100);
             this.imgCarte25.TabIndex = 25;
             this.imgCarte25.TabStop = false;
+            this.imgCarte25.Click += new System.EventHandler(this.imgCarte25_Click);
             // 
             // imgCarte26
             // 
@@ -306,6 +328,7 @@
             this.imgCarte26.Size = new System.Drawing.Size(75, 100);
             this.imgCarte26.TabIndex = 26;
             this.imgCarte26.TabStop = false;
+            this.imgCarte26.Click += new System.EventHandler(this.imgCarte26_Click);
             // 
             // imgCarte27
             // 
@@ -314,6 +337,7 @@
             this.imgCarte27.Size = new System.Drawing.Size(75, 100);
             this.imgCarte27.TabIndex = 27;
             this.imgCarte27.TabStop = false;
+            this.imgCarte27.Click += new System.EventHandler(this.imgCarte27_Click);
             // 
             // imgCarte28
             // 
