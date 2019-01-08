@@ -150,9 +150,8 @@ namespace Pyramid
                     imgLastCarte.Image = imgNouvelleCarte.Image;
                     imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
                     imgLastCarte.Visible = true;
-                    
-                    //MessageBox.Show(Cartes.ElementAt(i).GetCarteValeur().ToString());
                     i++;
+                    //MessageBox.Show(Cartes.ElementAt(i).GetCarteValeur().ToString());
                 }
                 else
                 {
@@ -190,6 +189,141 @@ namespace Pyramid
         {
             //MyPaint();
         }
+        public bool CanClick(int nbCarte)
+        {
+            switch (nbCarte)
+            {
+                case 0:
+                    if (imgCarte2.Visible == true || imgCarte3.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 1:
+                    if (imgCarte4.Visible == true || imgCarte5.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 2:
+                    if (imgCarte5.Visible == true || imgCarte6.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 3:
+                    if (imgCarte7.Visible == true || imgCarte8.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 4:
+                    if (imgCarte8.Visible == true || imgCarte9.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 5:
+                    if (imgCarte9.Visible == true || imgCarte10.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 6:
+                    if (imgCarte11.Visible == true || imgCarte12.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 7:
+                    if (imgCarte12.Visible == true || imgCarte13.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 8:
+                    if (imgCarte13.Visible == true || imgCarte14.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 9:
+                    if (imgCarte14.Visible == true || imgCarte15.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 10:
+                    if (imgCarte16.Visible == true || imgCarte17.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 11:
+                    if (imgCarte17.Visible == true || imgCarte18.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 12:
+                    if (imgCarte18.Visible == true || imgCarte19.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 13:
+                    if (imgCarte19.Visible == true || imgCarte20.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 14:
+                    if (imgCarte20.Visible == true || imgCarte21.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 15:
+                    if (imgCarte22.Visible == true || imgCarte23.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 16:
+                    if (imgCarte23.Visible == true || imgCarte24.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 17:
+                    if (imgCarte24.Visible == true || imgCarte25.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 18:
+                    if (imgCarte25.Visible == true || imgCarte26.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 19:
+                    if (imgCarte26.Visible == true || imgCarte27.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+                case 20:
+                    if (imgCarte27.Visible == true || imgCarte28.Visible == true)
+                    {
+                        return true;
+                    }
+                    break;
+            }
+
+            return false;
+        }
+
         public void ClickOnCard(object sender, EventArgs e)
         {
              ptb = sender as PictureBox;
@@ -198,7 +332,7 @@ namespace Pyramid
         {
             int NbClickOnPlateau = 0;
             total = value1 + CartesCheckList.ElementAt(nbCarte).GetCarteValeur();
-
+            bool clickVerif = CanClick(nbCarte);
             PictureBox[] boxesCarte =
             {
                 imgCarte1, imgCarte2, imgCarte3, imgCarte4, imgCarte5, imgCarte6, imgCarte7, imgCarte8, imgCarte9, imgCarte10, imgCarte11,
@@ -206,7 +340,7 @@ namespace Pyramid
                 imgCarte22, imgCarte23, imgCarte24, imgCarte25, imgCarte26, imgCarte27, imgCarte28
             };
 
-            if (total == 13)
+            if (total == 13 && clickVerif == false)
             {
                 boxesCarte.ElementAt(nbCarte).Visible = false;               
                 value1 = 0;
@@ -227,131 +361,141 @@ namespace Pyramid
             //MessageBox.Show(CartesCheckList.ElementAt(nbCarte).GetCarteValeur().ToString());
              
         }
+
+        public void ClickSurPlateau1(int nbCarte)
+        {
+            total = CartesCheckList.ElementAt(nbCarte).GetCarteValeur();
+            bool clickVerif = CanClick(nbCarte);
+
+            PictureBox[] boxesCarte =
+            {
+                imgCarte1, imgCarte2, imgCarte3, imgCarte4, imgCarte5, imgCarte6, imgCarte7, imgCarte8, imgCarte9, imgCarte10, imgCarte11,
+                imgCarte12, imgCarte13, imgCarte14, imgCarte15, imgCarte16, imgCarte17, imgCarte18, imgCarte19, imgCarte20, imgCarte21,
+                imgCarte22, imgCarte23, imgCarte24, imgCarte25, imgCarte26, imgCarte27, imgCarte28
+            };
+
+            if (total == 13 && clickVerif == false)
+            {
+                    boxesCarte.ElementAt(nbCarte).Visible = false;
+            }
+            else
+            {
+                    ClickSurPlateau(nbCarte);
+            }            
+        }
+
         private void imgCarte1_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(0);
-            if(total == 13)
-            {
-                imgCarte1.Visible = false;
-            }
+            ClickSurPlateau1(0);
         }
         private void imgCarte2_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(1);
-            if (total == 13)
-            {
-                imgCarte2.Visible = false;
-            }
+            ClickSurPlateau1(1);
         }
         private void imgCarte3_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(2);
+            ClickSurPlateau1(2);
         }
         private void imgCarte4_Click_1(object sender, EventArgs e)
         {
-            ClickSurPlateau(3);
+            ClickSurPlateau1(3);
         }
         private void imgCarte5_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(4);
+            ClickSurPlateau1(4);
         }
         private void imgCarte6_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(5);
+            ClickSurPlateau1(5);
         }
         private void imgCarte7_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(6);
+            ClickSurPlateau1(6);
         }
         private void imgCarte8_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(7);
+            ClickSurPlateau1(7);
         }
         private void imgCarte9_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(8);
+            ClickSurPlateau1(8);
         }
         private void imgCarte10_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(9);
+            ClickSurPlateau1(9);
         }
         private void imgCarte11_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(10);
+            ClickSurPlateau1(10);
         }
         private void imgCarte12_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(11);
+            ClickSurPlateau1(11);
         }
         private void imgCarte13_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(12);
+            ClickSurPlateau1(12);
         }
         private void imgCarte14_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(13);
+            ClickSurPlateau1(13);
         }
         private void imgCarte15_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(14);
+            ClickSurPlateau1(14);
         }
         private void imgCarte16_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(15);
+            ClickSurPlateau1(15);
         }
         private void imgCarte17_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(16);
+            ClickSurPlateau1(16);
         }
         private void imgCarte18_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(17);
+            ClickSurPlateau1(17);
         }
         private void imgCarte19_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(18);
+            ClickSurPlateau1(18);
         }
         private void imgCarte20_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(19);
+            ClickSurPlateau1(19);
         }
         private void imgCarte21_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(20);
+            ClickSurPlateau1(20);
         }
         private void imgCarte22_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(21);
+            ClickSurPlateau1(21);
         }
         private void imgCarte23_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(22);
+            ClickSurPlateau1(22);
         }
         private void imgCarte24_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(23);
+            ClickSurPlateau1(23);
         }
         private void imgCarte25_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(24);
+            ClickSurPlateau1(24);
         }
         private void imgCarte26_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(25);
+            ClickSurPlateau1(25);
         }
         private void imgCarte27_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(26);
+            ClickSurPlateau1(26);
         }
         private void imgCarte28_Click(object sender, EventArgs e)
         {
-            ClickSurPlateau(27);
-            if (total == 13)
-            {
-                imgCarte28.Visible = false;
-            }
+            ClickSurPlateau1(27);
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -362,8 +506,5 @@ namespace Pyramid
             cmdNouvellePartie.Enabled = true;
             MyPaint();
         }
-
-
-
     }
 }
