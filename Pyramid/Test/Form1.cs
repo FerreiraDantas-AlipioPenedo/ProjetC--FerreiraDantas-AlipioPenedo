@@ -51,11 +51,11 @@ namespace Pyramid
                 imgCarte22, imgCarte23, imgCarte24, imgCarte25, imgCarte26, imgCarte27, imgCarte28
             };
 
-            Shuffle(Cartes);
+            
 
             for (int i = 0; i < boxesCarte.Count(); i++)
             {
-
+                Shuffle(Cartes);
                 boxesCarte[i].Image = Cartes.ElementAt(0).GetImage();
                 CartesCheckList.Add(Cartes.ElementAt(0));
                 Cartes.RemoveAt(0);
@@ -68,7 +68,7 @@ namespace Pyramid
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
             grpInfoUser.Visible = true;
             if (grpInfoUser.Visible == true)
             {
@@ -76,8 +76,6 @@ namespace Pyramid
                 cmdNextCarte.Enabled = false;
                 cmdNouvellePartie.Enabled = false;
             }
-
-            MyPaint();
 
             imgLastCarte.Click += ClickOnCard;
             imgNouvelleCarte.Click += ClickOnCard;
