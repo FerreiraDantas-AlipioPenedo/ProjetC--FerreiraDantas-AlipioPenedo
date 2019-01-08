@@ -23,15 +23,15 @@ namespace Pyramid
         int nbClickNextCard = 0;
         int i = 0;
         int tour = 3;
-<<<<<<< HEAD
+
         int FirstTime = 0;
         string PseudoUser;
-=======
+
         int value1 = 0;
         int value2 = 0;
         int total = 0;
         PictureBox ptb = new PictureBox();
->>>>>>> 05667c9cdb3dc65ecb7307fac5581c58a4d396d9
+
 
         public Form1()
         {
@@ -51,9 +51,11 @@ namespace Pyramid
                 imgCarte22, imgCarte23, imgCarte24, imgCarte25, imgCarte26, imgCarte27, imgCarte28
             };
 
-            for (int i = 0; i <= boxesCarte.Count()-1; i++)
+            Shuffle(Cartes);
+
+            for (int i = 0; i < boxesCarte.Count(); i++)
             {
-                Shuffle(Cartes);
+
                 boxesCarte[i].Image = Cartes.ElementAt(0).GetImage();
                 CartesCheckList.Add(Cartes.ElementAt(0));
                 Cartes.RemoveAt(0);
@@ -66,7 +68,7 @@ namespace Pyramid
 
         private void Form1_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             grpInfoUser.Visible = true;
             if (grpInfoUser.Visible == true)
             {
@@ -74,12 +76,12 @@ namespace Pyramid
                 cmdNextCarte.Enabled = false;
                 cmdNouvellePartie.Enabled = false;
             }
-=======
+
             MyPaint();
 
             imgLastCarte.Click += ClickOnCard;
             imgNouvelleCarte.Click += ClickOnCard;
->>>>>>> 05667c9cdb3dc65ecb7307fac5581c58a4d396d9
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -120,6 +122,7 @@ namespace Pyramid
 
         private void Shuffle<T>(List<T> list)
         {
+
             for (int i = 0; i < 100; i++)
             {
                 int index1 = rd.Next(0, list.Count );
@@ -351,7 +354,7 @@ namespace Pyramid
             }
         }
 
-<<<<<<< HEAD
+
         private void button1_Click(object sender, EventArgs e)
         {
             PseudoUser = txtPseudoUser.Text;
@@ -361,8 +364,8 @@ namespace Pyramid
             cmdNouvellePartie.Enabled = true;
             MyPaint();
         }
-=======
 
->>>>>>> 05667c9cdb3dc65ecb7307fac5581c58a4d396d9
+
+
     }
 }
