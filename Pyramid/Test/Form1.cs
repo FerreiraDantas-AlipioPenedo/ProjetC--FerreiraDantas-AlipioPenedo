@@ -353,17 +353,22 @@ namespace Pyramid
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void cmdValiderPseudo_Click(object sender, EventArgs e)
         {
-            PseudoUser = txtPseudoUser.Text;
-            grpInfoUser.Visible = false;
-            cmdAfficherScores.Enabled = true;
-            cmdNextCarte.Enabled = true;
-            cmdNouvellePartie.Enabled = true;
-            MyPaint();
+            if(txtPseudoUser.Text != "")
+            {
+                PseudoUser = txtPseudoUser.Text;
+                grpInfoUser.Visible = false;
+                cmdAfficherScores.Enabled = true;
+                cmdNextCarte.Enabled = true;
+                cmdNouvellePartie.Enabled = true;
+                MyPaint();
+            }
+            else
+            {
+                MessageBox.Show("Veuillez insérer un pseudo !");
+            }
+            
         }
-
-
-
     }
 }
