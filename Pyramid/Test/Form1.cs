@@ -19,11 +19,18 @@ namespace Pyramid
         Random rd = new Random();        
         List<Carte> Cartes = CarteGenerator.getToutesCartes(0.5);
         List<Carte> CartesCheckList = new List<Carte>();
+        List<Image> UsedCarte = new List<Image>();
         int nbClickNextCard = 0;
         int i = 0;
         int tour = 3;
+<<<<<<< HEAD
         int FirstTime = 0;
         string PseudoUser;
+=======
+        int value1 = 0;
+        int total = 0;
+        PictureBox ptb = new PictureBox();
+>>>>>>> 05667c9cdb3dc65ecb7307fac5581c58a4d396d9
 
         public Form1()
         {
@@ -58,6 +65,7 @@ namespace Pyramid
 
         private void Form1_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             grpInfoUser.Visible = true;
             if (grpInfoUser.Visible == true)
             {
@@ -65,6 +73,12 @@ namespace Pyramid
                 cmdNextCarte.Enabled = false;
                 cmdNouvellePartie.Enabled = false;
             }
+=======
+            MyPaint();
+
+            imgLastCarte.Click += ClickOnCard;
+            imgNouvelleCarte.Click += ClickOnCard;
+>>>>>>> 05667c9cdb3dc65ecb7307fac5581c58a4d396d9
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -124,16 +138,18 @@ namespace Pyramid
                 imgNouvelleCarte.Visible = true;
                 imgLastCarte.Visible = false;
                 //MessageBox.Show(Cartes.ElementAt(i).GetCarteValeur().ToString());
-                //Cartes.RemoveAt(0);
                 i++;
             }
             else
             {
                 if (i <= 23 )
                 {
+                    UsedCarte.Add(imgLastCarte.Image);
                     imgLastCarte.Image = imgNouvelleCarte.Image;
                     imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
                     imgLastCarte.Visible = true;
+                    
+                    //MessageBox.Show(Cartes.ElementAt(i).GetCarteValeur().ToString());
                     i++;
                 }
                 else
@@ -141,45 +157,83 @@ namespace Pyramid
                     imgLastCarte.Image = imgNouvelleCarte.Image;               
                     cmdSecondPlate.Visible = true;
                     imgNouvelleCarte.Visible = false;
+                    UsedCarte.Add(imgLastCarte.Image);
                     i = 0;
                     nbClickNextCard = 0;
                     tour--;
-                }
-                
-            }
-           
+                }              
+            }         
         }
 
         private void imgLastCarte_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(Cartes.ElementAt(0).GetCarteValeur().ToString());          
+            value1 = Cartes.ElementAt(i - 2).GetCarteValeur();           
+            //MessageBox.Show(Cartes.ElementAt(i-2).GetCarteValeur().ToString());    
         }
         private void imgNouvelleCarte_Click(object sender, EventArgs e)
         {
-
+            value1 = Cartes.ElementAt(i - 1).GetCarteValeur();         
+            //Cartes.RemoveAt(i - 1);
         }
         private void cmdNouvellePartie_Click(object sender, EventArgs e)
         {
             //MyPaint();
         }
-        private void ClickSurPlateau(int nbCarte)
+        public void ClickOnCard(object sender, EventArgs e)
         {
-            MessageBox.Show(CartesCheckList.ElementAt(nbCarte).GetCarteValeur().ToString());
+             ptb = sender as PictureBox;
         }
+        public void ClickSurPlateau(int nbCarte)
+        {
+            PictureBox[] boxesCarte =
+            {
+                imgCarte1, imgCarte2, imgCarte3, imgCarte4, imgCarte5, imgCarte6, imgCarte7, imgCarte8, imgCarte9, imgCarte10, imgCarte11,
+                imgCarte12, imgCarte13, imgCarte14, imgCarte15, imgCarte16, imgCarte17, imgCarte18, imgCarte19, imgCarte20, imgCarte21,
+                imgCarte22, imgCarte23, imgCarte24, imgCarte25, imgCarte26, imgCarte27, imgCarte28
+            };
+            total = value1 + CartesCheckList.ElementAt(nbCarte).GetCarteValeur();
+            if (total == 13)
+            {
+                boxesCarte.ElementAt(nbCarte).Visible = false;               
+                value1 = 0;
+                if(ptb.Name == "imgLastCarte")
+                {
+                    imgLastCarte.Image = UsedCarte.Last();
+                    Cartes.RemoveAt(i - 2);
+                }
+                else
+                {
+                    //imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
+                    //Cartes.RemoveAt(i);
+                }
+                
+       
+            }
 
+            //MessageBox.Show(CartesCheckList.ElementAt(nbCarte).GetCarteValeur().ToString());
+             
+        }
         private void imgCarte1_Click(object sender, EventArgs e)
         {
             ClickSurPlateau(0);
+            if(total == 13)
+            {
+                imgCarte1.Visible = false;
+            }
         }
         private void imgCarte2_Click(object sender, EventArgs e)
         {
             ClickSurPlateau(1);
+            if (total == 13)
+            {
+                imgCarte2.Visible = false;
+            }
         }
         private void imgCarte3_Click(object sender, EventArgs e)
         {
             ClickSurPlateau(2);
         }
-        private void imgCarte4_Click(object sender, EventArgs e)
+        private void imgCarte4_Click_1(object sender, EventArgs e)
         {
             ClickSurPlateau(3);
         }
@@ -278,8 +332,13 @@ namespace Pyramid
         private void imgCarte28_Click(object sender, EventArgs e)
         {
             ClickSurPlateau(27);
+            if (total == 13)
+            {
+                imgCarte28.Visible = false;
+            }
         }
 
+<<<<<<< HEAD
         private void button1_Click(object sender, EventArgs e)
         {
             PseudoUser = txtPseudoUser.Text;
@@ -289,5 +348,8 @@ namespace Pyramid
             cmdNouvellePartie.Enabled = true;
             MyPaint();
         }
+=======
+
+>>>>>>> 05667c9cdb3dc65ecb7307fac5581c58a4d396d9
     }
 }
