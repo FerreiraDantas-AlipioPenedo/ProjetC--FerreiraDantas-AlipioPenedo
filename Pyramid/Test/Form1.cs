@@ -24,6 +24,7 @@ namespace Pyramid
         int i = 0;
         int tour = 3;
         int value1 = 0;
+        int value2 = 0;
         int total = 0;
         PictureBox ptb = new PictureBox();
 
@@ -146,13 +147,22 @@ namespace Pyramid
 
         private void imgLastCarte_Click(object sender, EventArgs e)
         {
-            value1 = Cartes.ElementAt(i - 2).GetCarteValeur();           
+            value1 = Cartes.ElementAt(i - 2).GetCarteValeur();
+            if(value1 == 13)
+            {
+                imgLastCarte.Image = UsedCarte.Last();
+                Cartes.RemoveAt(i - 2);
+            }
             //MessageBox.Show(Cartes.ElementAt(i-2).GetCarteValeur().ToString());    
         }
         private void imgNouvelleCarte_Click(object sender, EventArgs e)
         {
-            value1 = Cartes.ElementAt(i - 1).GetCarteValeur();         
-            //Cartes.RemoveAt(i - 1);
+            value1 = Cartes.ElementAt(i - 1).GetCarteValeur();
+            if (value1 == 13)
+            {
+                imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
+                Cartes.RemoveAt(i - 1);
+            }            
         }
         private void cmdNouvellePartie_Click(object sender, EventArgs e)
         {
@@ -164,13 +174,16 @@ namespace Pyramid
         }
         public void ClickSurPlateau(int nbCarte)
         {
+            int NbClickOnPlateau = 0;
+            total = value1 + CartesCheckList.ElementAt(nbCarte).GetCarteValeur();
+
             PictureBox[] boxesCarte =
             {
                 imgCarte1, imgCarte2, imgCarte3, imgCarte4, imgCarte5, imgCarte6, imgCarte7, imgCarte8, imgCarte9, imgCarte10, imgCarte11,
                 imgCarte12, imgCarte13, imgCarte14, imgCarte15, imgCarte16, imgCarte17, imgCarte18, imgCarte19, imgCarte20, imgCarte21,
                 imgCarte22, imgCarte23, imgCarte24, imgCarte25, imgCarte26, imgCarte27, imgCarte28
             };
-            total = value1 + CartesCheckList.ElementAt(nbCarte).GetCarteValeur();
+
             if (total == 13)
             {
                 boxesCarte.ElementAt(nbCarte).Visible = false;               
@@ -180,15 +193,15 @@ namespace Pyramid
                     imgLastCarte.Image = UsedCarte.Last();
                     Cartes.RemoveAt(i - 2);
                 }
-                else
+
+                if(ptb.Name == "imgNouvelleCarte")
                 {
-                    //imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
-                    //Cartes.RemoveAt(i);
+                    imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
+                    Cartes.RemoveAt(i);
                 }
-                
-       
             }
 
+            NbClickOnPlateau++;
             //MessageBox.Show(CartesCheckList.ElementAt(nbCarte).GetCarteValeur().ToString());
              
         }
