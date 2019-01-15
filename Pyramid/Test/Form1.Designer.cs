@@ -432,6 +432,7 @@
             this.cmdSecondPlate.Text = "2";
             this.cmdSecondPlate.UseVisualStyleBackColor = true;
             this.cmdSecondPlate.Visible = false;
+            this.cmdSecondPlate.Click += new System.EventHandler(this.cmdSecondPlate_Click);
             // 
             // grpInfoUser
             // 
