@@ -159,7 +159,7 @@ namespace Pyramid
             }
             else
             {
-                if (i <= 23 )
+                if (i <= Cartes.Count())
                 {
                     UsedCarte.Add(imgLastCarte.Image);
                     imgLastCarte.Image = imgNouvelleCarte.Image;
@@ -261,7 +261,7 @@ namespace Pyramid
                 score += 5;
                 lblScore.Text = score.ToString();
             }
-            else if (total == 13)
+            else if (total == 13 && clickVerif == false)
             {
                 boxesCarte.ElementAt(nbCarte).Visible = false;
                 imgLastCarte.Image = UsedCarte.Last();
@@ -269,7 +269,7 @@ namespace Pyramid
                 total = 0;
                 value3 = 0;
             }
-            else if(total1 == 13)
+            else if(total1 == 13 && clickVerif == false)
             {
                 boxesCarte.ElementAt(nbCarte).Visible = false;
                 imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
