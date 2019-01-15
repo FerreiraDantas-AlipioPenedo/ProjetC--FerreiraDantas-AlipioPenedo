@@ -27,6 +27,8 @@ namespace Pyramid
         int FirstTime = 0;
         string PseudoUser;
 
+        int score = 0;
+
         int tempValue = 0;
         int tempCarte = 0;
         int value1 = 0;
@@ -186,22 +188,28 @@ namespace Pyramid
 
         private void imgLastCarte_Click(object sender, EventArgs e)
         {
+            score = Int32.Parse(lblScore.Text);
             value1 = Cartes.ElementAt(i - 2).GetCarteValeur();
 
             if(value1 == 13)
             {
                 imgLastCarte.Image = UsedCarte.Last();
                 Cartes.RemoveAt(i - 2);
+                score += 5;
+                lblScore.Text = score.ToString();
             }
         }
         private void imgNouvelleCarte_Click(object sender, EventArgs e)
         {
+            score = Int32.Parse(lblScore.Text);
             value2 = Cartes.ElementAt(i - 1).GetCarteValeur();
 
             if (value2 == 13)
             {
                 imgNouvelleCarte.Image = UsedCarte.Last();
                 Cartes.RemoveAt(i - 1);
+                score += 5;
+                lblScore.Text = score.ToString();
             }
         }
         private void cmdNouvellePartie_Click(object sender, EventArgs e)
@@ -231,6 +239,7 @@ namespace Pyramid
             total = value3 + value1;
             total1 = value3 + value2;
             bool clickVerif = CanClick(nbCarte);
+            score = Int32.Parse(lblScore.Text);           
 
             if (tempValue != 0)
             {
@@ -240,6 +249,8 @@ namespace Pyramid
                 {
                     boxesCarte.ElementAt(nbCarte).Visible = false;
                     boxesCarte.ElementAt(tempCarte).Visible = false;
+                    score += 5;
+                    lblScore.Text = score.ToString();
                 }
             }
 
@@ -247,6 +258,8 @@ namespace Pyramid
             {
                 boxesCarte.ElementAt(nbCarte).Visible = false;
                 value3 = 0;
+                score += 5;
+                lblScore.Text = score.ToString();
             }
             else if (total == 13)
             {
@@ -263,6 +276,8 @@ namespace Pyramid
                 Cartes.RemoveAt(i - 1);             
                 total1 = 0;
                 value3 = 0;
+                score += 5;
+                lblScore.Text = score.ToString();
             }
             else
             {
@@ -278,6 +293,8 @@ namespace Pyramid
                 {
                     boxesCarte.ElementAt(nbCarte).Visible = false;
                     boxesCarte.ElementAt(tempCarte).Visible = false;
+                    score += 5;
+                    lblScore.Text = score.ToString();
                 }
             }
         }
@@ -396,7 +413,7 @@ namespace Pyramid
         }
 
         public bool CanClick(int nbCarte)
-        {
+        {         
             switch (nbCarte)
             {
                 case 0:
@@ -542,7 +559,8 @@ namespace Pyramid
 
         private void ScorePoints()
         {
-            int score = Int32.Parse(lblScore.Text);          
+
+            score = Int32.Parse(lblScore.Text);
 
             if (imgCarte22.Visible == false && imgCarte23.Visible == false && imgCarte24.Visible == false && imgCarte25.Visible == false && imgCarte26.Visible == false && imgCarte27.Visible == false && imgCarte28.Visible == false && firstRang == false)
             {
@@ -560,7 +578,7 @@ namespace Pyramid
 
             if (imgCarte11.Visible == false && imgCarte12.Visible == false && imgCarte13.Visible == false && imgCarte14.Visible == false && imgCarte15.Visible == false && thirtRang == false)
             {
-                score += 100;
+                score += 75;
                 lblScore.Text = score.ToString();
                 thirtRang = true;
             }
@@ -574,21 +592,21 @@ namespace Pyramid
 
             if (imgCarte4.Visible == false && imgCarte5.Visible == false && imgCarte6.Visible == false && fifthRang == false)
             {
-                score += 100;
+                score += 150;
                 lblScore.Text = score.ToString();
                 firstRang = true;
             }
 
             if (imgCarte2.Visible == false && imgCarte3.Visible == false && sixRang == false)
             {
-                score += 100;
+                score += 250;
                 lblScore.Text = score.ToString();
                 sixRang = true;
             }
 
             if (imgCarte1.Visible == false && sevenRang == false)
             {
-                score += 100;
+                score += 500;
                 lblScore.Text = score.ToString();
                 sevenRang = true;
             }
