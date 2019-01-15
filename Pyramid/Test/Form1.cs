@@ -214,7 +214,53 @@ namespace Pyramid
         }
         private void cmdNouvellePartie_Click(object sender, EventArgs e)
         {
+            PictureBox[] boxesCarte =
+            {
+                imgCarte1, imgCarte2, imgCarte3, imgCarte4, imgCarte5, imgCarte6, imgCarte7, imgCarte8, imgCarte9, imgCarte10, imgCarte11,
+                imgCarte12, imgCarte13, imgCarte14, imgCarte15, imgCarte16, imgCarte17, imgCarte18, imgCarte19, imgCarte20, imgCarte21,
+                imgCarte22, imgCarte23, imgCarte24, imgCarte25, imgCarte26, imgCarte27, imgCarte28
+            };
+
+            Cartes = CarteGenerator.getToutesCartes(0.5);
+            CartesCheckList = new List<Carte>();
+            UsedCarte = new List<Image>();
+            nbClickNextCard = 0;
+            i = 0;
+            tour = 3;
+
+            FirstTime = 0;
             
+            score = 0;
+
+            tempValue = 0;
+            tempCarte = 0;
+            value1 = 0;
+            value2 = 0;
+            value3 = 0;
+            value4 = 0;
+            total = 0;
+            total1 = 0;
+
+            firstRang = false;
+            secondRang = false;
+            thirtRang = false;
+            fourthRang = false;
+            fifthRang = false;
+            sixRang = false;
+            sevenRang = false;
+
+            MyPaint();
+            lblScore.Text = score.ToString();
+
+            imgLastCarte.Visible = false;
+
+            foreach(PictureBox p in boxesCarte )
+            {
+                if(p.Visible == false)
+                {
+                    p.Visible = true;
+                }
+            }
         }
 
         public void ClickOnCard(object sender, EventArgs e)
