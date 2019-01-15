@@ -12,12 +12,8 @@ using System.IO;
 
 namespace Pyramid
 {
-    /// <summary>
-    /// manages the form that enabled to play with Pyramid
-    /// </summary>
     public partial class Form1 : Form
     {
-        //used to store some informations used in the game
         string fichierScores = @"..\Scores.txt";
         string pathCartes = @"..\Cartes.txt";
         Random rd = new Random();        
@@ -52,9 +48,7 @@ namespace Pyramid
 
         PictureBox ptb = new PictureBox();
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
+
         public Form1()
         {
             InitializeComponent();
@@ -64,10 +58,6 @@ namespace Pyramid
         {
 
         }
-
-        /// <summary>
-        /// Initialize the cards of the pyramid and the stack of the player
-        /// </summary>
         public void MyPaint()
         {            
             PictureBox[] boxesCarte =
