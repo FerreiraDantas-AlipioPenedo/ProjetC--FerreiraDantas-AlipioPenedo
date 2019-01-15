@@ -214,7 +214,7 @@ namespace Pyramid
         }
         private void cmdNouvellePartie_Click(object sender, EventArgs e)
         {
-            //MyPaint();
+            
         }
 
         public void ClickOnCard(object sender, EventArgs e)
@@ -261,7 +261,7 @@ namespace Pyramid
                 score += 5;
                 lblScore.Text = score.ToString();
             }
-            else if (total == 13)
+            else if (total == 13 && clickVerif == false)
             {
                 boxesCarte.ElementAt(nbCarte).Visible = false;
                 imgLastCarte.Image = UsedCarte.Last();
@@ -269,7 +269,7 @@ namespace Pyramid
                 total = 0;
                 value3 = 0;
             }
-            else if(total1 == 13)
+            else if(total1 == 13 && clickVerif == false)
             {
                 boxesCarte.ElementAt(nbCarte).Visible = false;
                 imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
@@ -550,11 +550,18 @@ namespace Pyramid
         private void button1_Click(object sender, EventArgs e)
         {
             PseudoUser = txtPseudoUser.Text;
-            grpInfoUser.Visible = false;
-            cmdAfficherScores.Enabled = true;
-            cmdNextCarte.Enabled = true;
-            cmdNouvellePartie.Enabled = true;
-            MyPaint();
+            if(txtPseudoUser.Text != "")
+            {
+                grpInfoUser.Visible = false;
+                cmdAfficherScores.Enabled = true;
+                cmdNextCarte.Enabled = true;
+                cmdNouvellePartie.Enabled = true;
+                MyPaint();
+            }
+            else
+            {
+                MessageBox.Show("Veuillez insérer un pseudo !");
+            }
         }
 
         private void ScorePoints()
