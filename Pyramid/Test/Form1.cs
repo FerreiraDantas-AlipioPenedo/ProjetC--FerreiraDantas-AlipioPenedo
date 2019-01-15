@@ -159,7 +159,7 @@ namespace Pyramid
             }
             else
             {
-                if (i <= 23 )
+                if (i <= Cartes.Count())
                 {
                     UsedCarte.Add(imgLastCarte.Image);
                     imgLastCarte.Image = imgNouvelleCarte.Image;
