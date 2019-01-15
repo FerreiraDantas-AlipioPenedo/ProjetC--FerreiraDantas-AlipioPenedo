@@ -31,10 +31,23 @@ namespace Pyramid
         int FirstTime = 0;
         string PseudoUser;
 
+        int tempValue = 0;
+        int tempCarte = 0;
         int value1 = 0;
         int value2 = 0;
         int value3 = 0;
+        int value4 = 0;
         int total = 0;
+        int total1 = 0;
+
+        bool firstRang = false;
+        bool secondRang = false;
+        bool thirtRang = false;
+        bool fourthRang = false;
+        bool fifthRang = false;
+        bool sixRang = false;
+        bool sevenRang = false;
+
         PictureBox ptb = new PictureBox();
 
         /// <summary>
@@ -62,11 +75,11 @@ namespace Pyramid
                 imgCarte22, imgCarte23, imgCarte24, imgCarte25, imgCarte26, imgCarte27, imgCarte28
             };
 
-            Shuffle(Cartes);
+
 
             for (int i = 0; i < boxesCarte.Count(); i++)
             {
-               
+                Shuffle(Cartes);
                 boxesCarte[i].Image = Cartes.ElementAt(0).GetImage();
                 CartesCheckList.Add(Cartes.ElementAt(0));
                 Cartes.RemoveAt(0);
@@ -173,64 +186,33 @@ namespace Pyramid
                     nbClickNextCard = 0;
                     tour--;
                 }              
-            }         
+            }       
+            
+            if(tour == 0)
+            {
+                cmdNextCarte.Enabled = false;
+            }
         }
 
         private void imgLastCarte_Click(object sender, EventArgs e)
         {
-            PictureBox[] boxesCarte =
-            {
-                imgCarte1, imgCarte2, imgCarte3, imgCarte4, imgCarte5, imgCarte6, imgCarte7, imgCarte8, imgCarte9, imgCarte10, imgCarte11,
-                imgCarte12, imgCarte13, imgCarte14, imgCarte15, imgCarte16, imgCarte17, imgCarte18, imgCarte19, imgCarte20, imgCarte21,
-                imgCarte22, imgCarte23, imgCarte24, imgCarte25, imgCarte26, imgCarte27, imgCarte28
-            };
             value1 = Cartes.ElementAt(i - 2).GetCarteValeur();
+
             if(value1 == 13)
             {
                 imgLastCarte.Image = UsedCarte.Last();
                 Cartes.RemoveAt(i - 2);
-                value1 = 0;
-            }else
-            {
-                int t = value1 + value2;
-                if(t == 13)
-                {
-                    imgLastCarte.Image = UsedCarte.Last();
-                    Cartes.RemoveAt(i - 2);
-                    value1 = 0;
-                    value2 = 0;
-                    boxesCarte.ElementAt(value3).Visible = false;
-                }
             }
-            //MessageBox.Show(Cartes.ElementAt(i-2).GetCarteValeur().ToString());    
         }
         private void imgNouvelleCarte_Click(object sender, EventArgs e)
         {
-            PictureBox[] boxesCarte =
-            {
-                imgCarte1, imgCarte2, imgCarte3, imgCarte4, imgCarte5, imgCarte6, imgCarte7, imgCarte8, imgCarte9, imgCarte10, imgCarte11,
-                imgCarte12, imgCarte13, imgCarte14, imgCarte15, imgCarte16, imgCarte17, imgCarte18, imgCarte19, imgCarte20, imgCarte21,
-                imgCarte22, imgCarte23, imgCarte24, imgCarte25, imgCarte26, imgCarte27, imgCarte28
-            };
+            value2 = Cartes.ElementAt(i - 1).GetCarteValeur();
 
-            value1 = Cartes.ElementAt(i - 1).GetCarteValeur();
-            if (value1 == 13)
+            if (value2 == 13)
             {
-                imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
+                imgNouvelleCarte.Image = UsedCarte.Last();
                 Cartes.RemoveAt(i - 1);
-                value1 = 0;
-                value2 = 0;            }
-            else
-            {
-                int t = value1 + value2;
-                if(t == 13)
-                {
-                    imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
-                    Cartes.RemoveAt(i - 1);
-                    value1 = 0;
-                    boxesCarte.ElementAt(value3).Visible = false;
-                }
-            }  
+            }
         }
         private void cmdNouvellePartie_Click(object sender, EventArgs e)
         {
@@ -242,45 +224,12 @@ namespace Pyramid
              ptb = sender as PictureBox;
         }
         public void ClickSurPlateau(int nbCarte)
-        {
-            int NbClickOnPlateau = 0;
-            total = value1 + CartesCheckList.ElementAt(nbCarte).GetCarteValeur();
-            bool clickVerif = CanClick(nbCarte);
-            PictureBox[] boxesCarte =
-            {
-                imgCarte1, imgCarte2, imgCarte3, imgCarte4, imgCarte5, imgCarte6, imgCarte7, imgCarte8, imgCarte9, imgCarte10, imgCarte11,
-                imgCarte12, imgCarte13, imgCarte14, imgCarte15, imgCarte16, imgCarte17, imgCarte18, imgCarte19, imgCarte20, imgCarte21,
-                imgCarte22, imgCarte23, imgCarte24, imgCarte25, imgCarte26, imgCarte27, imgCarte28
-            };
-
-            if (total == 13 && clickVerif == false)
-            {
-                boxesCarte.ElementAt(nbCarte).Visible = false;               
-                value1 = 0;
-                if(ptb.Name == "imgLastCarte")
-                {
-                    imgLastCarte.Image = UsedCarte.Last();
-                    Cartes.RemoveAt(i - 2);
-                }
-
-                if(ptb.Name == "imgNouvelleCarte")
-                {
-                    imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
-                    Cartes.RemoveAt(i);
-                }
-            }
-
-            NbClickOnPlateau++;
-            //MessageBox.Show(CartesCheckList.ElementAt(nbCarte).GetCarteValeur().ToString());
+        { 
              
         }
 
         public void ClickSurPlateau1(int nbCarte)
         {
-            total = CartesCheckList.ElementAt(nbCarte).GetCarteValeur();
-            value2 = CartesCheckList.ElementAt(nbCarte).GetCarteValeur();
-            value3 = nbCarte;
-            bool clickVerif = CanClick(nbCarte);
             PictureBox[] boxesCarte =
             {
                 imgCarte1, imgCarte2, imgCarte3, imgCarte4, imgCarte5, imgCarte6, imgCarte7, imgCarte8, imgCarte9, imgCarte10, imgCarte11,
@@ -288,14 +237,59 @@ namespace Pyramid
                 imgCarte22, imgCarte23, imgCarte24, imgCarte25, imgCarte26, imgCarte27, imgCarte28
             };
 
-            if (total == 13 && clickVerif == false)
+            value3 = CartesCheckList.ElementAt(nbCarte).GetCarteValeur();
+            total = value3 + value1;
+            total1 = value3 + value2;
+            bool clickVerif = CanClick(nbCarte);
+
+            if (tempValue != 0)
+            {
+                value4 += value3;
+
+                if (value4 == 13 && clickVerif == false)
+                {
+                    boxesCarte.ElementAt(nbCarte).Visible = false;
+                    boxesCarte.ElementAt(tempCarte).Visible = false;
+                }
+            }
+
+            if (value3 == 13 && clickVerif == false)
             {
                 boxesCarte.ElementAt(nbCarte).Visible = false;
+                value3 = 0;
+            }
+            else if (total == 13)
+            {
+                boxesCarte.ElementAt(nbCarte).Visible = false;
+                imgLastCarte.Image = UsedCarte.Last();
+                Cartes.RemoveAt(i - 2);
+                total = 0;
+                value3 = 0;
+            }
+            else if(total1 == 13)
+            {
+                boxesCarte.ElementAt(nbCarte).Visible = false;
+                imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
+                Cartes.RemoveAt(i - 1);             
+                total1 = 0;
+                value3 = 0;
             }
             else
             {
-                ClickSurPlateau(nbCarte);
-            }            
+                tempValue = value3;
+                tempCarte = nbCarte;
+            }
+
+            if (tempValue != 0)
+            {
+                value4 += value3;
+
+                if (value4 == 13 && clickVerif == false)
+                {
+                    boxesCarte.ElementAt(nbCarte).Visible = false;
+                    boxesCarte.ElementAt(tempCarte).Visible = false;
+                }
+            }
         }
 
         private void imgCarte1_Click(object sender, EventArgs e)
@@ -546,22 +540,68 @@ namespace Pyramid
             return false;
         }
 
-        private void cmdValiderPseudo_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if(txtPseudoUser.Text != "")
+            PseudoUser = txtPseudoUser.Text;
+            grpInfoUser.Visible = false;
+            cmdAfficherScores.Enabled = true;
+            cmdNextCarte.Enabled = true;
+            cmdNouvellePartie.Enabled = true;
+            MyPaint();
+        }
+
+        private void ScorePoints()
+        {
+            int score = Int32.Parse(lblScore.Text);          
+
+            if (imgCarte22.Visible == false && imgCarte23.Visible == false && imgCarte24.Visible == false && imgCarte25.Visible == false && imgCarte26.Visible == false && imgCarte27.Visible == false && imgCarte28.Visible == false && firstRang == false)
             {
-                PseudoUser = txtPseudoUser.Text;
-                grpInfoUser.Visible = false;
-                cmdAfficherScores.Enabled = true;
-                cmdNextCarte.Enabled = true;
-                cmdNouvellePartie.Enabled = true;
-                MyPaint();
+                score += 25;
+                lblScore.Text = score.ToString();
+                firstRang = true;
             }
-            else
+
+            if (imgCarte16.Visible == false && imgCarte17.Visible == false && imgCarte18.Visible == false && imgCarte19.Visible == false && imgCarte20.Visible == false && imgCarte21.Visible == false && secondRang == false)
             {
-                MessageBox.Show("Veuillez insérer un pseudo !");
+                score += 50;
+                lblScore.Text = score.ToString();
+                secondRang = true;
             }
-            
+
+            if (imgCarte11.Visible == false && imgCarte12.Visible == false && imgCarte13.Visible == false && imgCarte14.Visible == false && imgCarte15.Visible == false && thirtRang == false)
+            {
+                score += 100;
+                lblScore.Text = score.ToString();
+                thirtRang = true;
+            }
+
+            if (imgCarte7.Visible == false && imgCarte8.Visible == false && imgCarte9.Visible == false && imgCarte10.Visible == false && fourthRang == false)
+            {
+                score += 100;
+                lblScore.Text = score.ToString();
+                fourthRang = true;
+            }
+
+            if (imgCarte4.Visible == false && imgCarte5.Visible == false && imgCarte6.Visible == false && fifthRang == false)
+            {
+                score += 100;
+                lblScore.Text = score.ToString();
+                firstRang = true;
+            }
+
+            if (imgCarte2.Visible == false && imgCarte3.Visible == false && sixRang == false)
+            {
+                score += 100;
+                lblScore.Text = score.ToString();
+                sixRang = true;
+            }
+
+            if (imgCarte1.Visible == false && sevenRang == false)
+            {
+                score += 100;
+                lblScore.Text = score.ToString();
+                sevenRang = true;
+            }
         }
     }
 }

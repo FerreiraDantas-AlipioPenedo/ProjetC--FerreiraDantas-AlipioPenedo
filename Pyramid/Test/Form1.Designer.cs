@@ -65,9 +65,11 @@
             this.cmdNextCarte = new System.Windows.Forms.Button();
             this.cmdSecondPlate = new System.Windows.Forms.Button();
             this.grpInfoUser = new System.Windows.Forms.GroupBox();
-            this.cmdValiderPseudo = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblPseudo = new System.Windows.Forms.Label();
             this.txtPseudoUser = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblScore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgCarte1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCarte2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCarte3)).BeginInit();
@@ -434,7 +436,7 @@
             // grpInfoUser
             // 
             this.grpInfoUser.BackColor = System.Drawing.SystemColors.Menu;
-            this.grpInfoUser.Controls.Add(this.cmdValiderPseudo);
+            this.grpInfoUser.Controls.Add(this.button1);
             this.grpInfoUser.Controls.Add(this.lblPseudo);
             this.grpInfoUser.Controls.Add(this.txtPseudoUser);
             this.grpInfoUser.Location = new System.Drawing.Point(302, 126);
@@ -444,15 +446,15 @@
             this.grpInfoUser.TabStop = false;
             this.grpInfoUser.Text = "Informations utilisateur";
             // 
-            // cmdValiderPseudo
+            // button1
             // 
-            this.cmdValiderPseudo.Location = new System.Drawing.Point(21, 117);
-            this.cmdValiderPseudo.Name = "cmdValiderPseudo";
-            this.cmdValiderPseudo.Size = new System.Drawing.Size(75, 23);
-            this.cmdValiderPseudo.TabIndex = 2;
-            this.cmdValiderPseudo.Text = "Valider";
-            this.cmdValiderPseudo.UseVisualStyleBackColor = true;
-            this.cmdValiderPseudo.Click += new System.EventHandler(this.cmdValiderPseudo_Click);
+            this.button1.Location = new System.Drawing.Point(21, 117);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Valider";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblPseudo
             // 
@@ -470,12 +472,34 @@
             this.txtPseudoUser.Size = new System.Drawing.Size(146, 20);
             this.txtPseudoUser.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label1.Location = new System.Drawing.Point(20, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Score";
+            // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblScore.Location = new System.Drawing.Point(86, 19);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(18, 20);
+            this.lblScore.TabIndex = 39;
+            this.lblScore.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
             this.ClientSize = new System.Drawing.Size(812, 631);
+            this.Controls.Add(this.lblScore);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.grpInfoUser);
             this.Controls.Add(this.cmdSecondPlate);
             this.Controls.Add(this.cmdNextCarte);
@@ -549,6 +573,7 @@
             this.grpInfoUser.ResumeLayout(false);
             this.grpInfoUser.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -593,7 +618,9 @@
         private System.Windows.Forms.GroupBox grpInfoUser;
         private System.Windows.Forms.Label lblPseudo;
         private System.Windows.Forms.TextBox txtPseudoUser;
-        private System.Windows.Forms.Button cmdValiderPseudo;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblScore;
     }
 }
 
