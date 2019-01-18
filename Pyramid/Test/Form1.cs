@@ -16,7 +16,7 @@ namespace Pyramid
     {
         string fichierScores = @"..\Scores.txt";
         string pathCartes = @"..\Cartes.txt";
-        Random rd = new Random();        
+        Random rd = new Random();
         List<Carte> Cartes = CarteGenerator.getToutesCartes(0.5);
         List<Carte> CartesCheckList = new List<Carte>();
         List<Image> UsedCarte = new List<Image>();
@@ -48,6 +48,8 @@ namespace Pyramid
         bool sixRang = false;
         bool sevenRang = false;
 
+        int nbPlateau = 0;
+
         PictureBox ptb = new PictureBox();
 
 
@@ -61,7 +63,7 @@ namespace Pyramid
 
         }
         public void MyPaint()
-        {            
+        {
             PictureBox[] boxesCarte =
             {
                 imgCarte1, imgCarte2, imgCarte3, imgCarte4, imgCarte5, imgCarte6, imgCarte7, imgCarte8, imgCarte9, imgCarte10, imgCarte11,
@@ -85,7 +87,7 @@ namespace Pyramid
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
             grpInfoUser.Visible = true;
             if (grpInfoUser.Visible == true)
             {
@@ -106,21 +108,21 @@ namespace Pyramid
 
         private void cmdAfficherScores_Click(object sender, EventArgs e)
         {
-            
+
             using (var reader = new StreamReader(fichierScores))
             {
-                
+
                 while (!reader.EndOfStream)
                 {
                     string line = reader.ReadLine();
 
-                    if(FirstTime == 0)
+                    if (FirstTime == 0)
                     {
                         lstScores.Items.Add(line);
                     }
                 }
             }
-            
+
             lstScores.Visible = true;
             cmdAfficherScores.Visible = false;
             cmdCacherScores.Visible = true;
@@ -140,8 +142,8 @@ namespace Pyramid
 
             for (int i = 0; i < 100; i++)
             {
-                int index1 = rd.Next(0, list.Count );
-                int index2 = rd.Next(0, list.Count );
+                int index1 = rd.Next(0, list.Count);
+                int index2 = rd.Next(0, list.Count);
                 T o = list[index1];
                 list[index1] = list[index2];
                 list[index2] = o;
@@ -149,7 +151,7 @@ namespace Pyramid
         }
 
         private void cmdNextCarte_Click(object sender, EventArgs e)
-        {         
+        {
             nbClickNextCard++;
             if (nbClickNextCard == 1)
             {
@@ -172,17 +174,17 @@ namespace Pyramid
                 }
                 else
                 {
-                    imgLastCarte.Image = imgNouvelleCarte.Image;               
+                    imgLastCarte.Image = imgNouvelleCarte.Image;
                     cmdSecondPlate.Visible = true;
                     imgNouvelleCarte.Visible = false;
                     UsedCarte.Add(imgLastCarte.Image);
                     i = 0;
                     nbClickNextCard = 0;
                     tour--;
-                }              
-            }       
-            
-            if(tour == 0)
+                }
+            }
+
+            if (tour == 0)
             {
                 cmdNextCarte.Enabled = false;
             }
@@ -193,7 +195,7 @@ namespace Pyramid
             score = Int32.Parse(lblScore.Text);
             if (i < Cartes.Count())
             {
-                value1 = Cartes.ElementAt(i - 2).GetCarteValeur();             
+                value1 = Cartes.ElementAt(i - 2).GetCarteValeur();
             }
 
             //MessageBox.Show(value1.ToString());
@@ -242,7 +244,7 @@ namespace Pyramid
             tour = 3;
 
             FirstTime = 0;
-            
+
             score = 0;
 
             tempValue = 0;
@@ -267,9 +269,9 @@ namespace Pyramid
 
             imgLastCarte.Visible = false;
 
-            foreach(PictureBox p in boxesCarte )
+            foreach (PictureBox p in boxesCarte)
             {
-                if(p.Visible == false)
+                if (p.Visible == false)
                 {
                     p.Visible = true;
                 }
@@ -278,11 +280,11 @@ namespace Pyramid
 
         public void ClickOnCard(object sender, EventArgs e)
         {
-             ptb = sender as PictureBox;
+            ptb = sender as PictureBox;
         }
         public void ClickSurPlateau(int nbCarte)
-        { 
-             
+        {
+
         }
 
         public void ClickSurPlateau1(int nbCarte)
@@ -314,7 +316,7 @@ namespace Pyramid
                 score += 5;
                 lblScore.Text = score.ToString();
             }
-            else if(total == 13 && clickVerif == false)
+            else if (total == 13 && clickVerif == false)
             {
                 boxesCarte.ElementAt(nbCarte).Visible = false;
                 imgLastCarte.Image = UsedCarte.Last();
@@ -324,17 +326,17 @@ namespace Pyramid
                 //total = 0;
                 value3 = 0;
             }
-            else if(total1 == 13 && clickVerif == false)
+            else if (total1 == 13 && clickVerif == false)
             {
                 boxesCarte.ElementAt(nbCarte).Visible = false;
                 imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
-                Cartes.RemoveAt(i - 1);             
+                Cartes.RemoveAt(i - 1);
                 //total1 = 0;
                 value3 = 0;
                 score += 5;
                 lblScore.Text = score.ToString();
             }
-            else if(total2 == 13 && clickVerif == false)
+            else if (total2 == 13 && clickVerif == false)
             {
                 boxesCarte.ElementAt(nbCarte).Visible = false;
                 boxesCarte.ElementAt(tempCarte).Visible = false;
@@ -347,9 +349,12 @@ namespace Pyramid
             {
                 value4 = value3;
                 tempCarte = nbCarte;
+
+
             }
- 
             ScorePoints();
+
+
 
             foreach (PictureBox p in boxesCarte)
             {
@@ -362,7 +367,19 @@ namespace Pyramid
             if (nbVisibleCard == 28)
             {
                 FinduPlateau();
+                nbPlateau++;
             }
+
+            if (cmdSecondPlate.Text == "0" && tour == 0)
+            {
+                MessageBox.Show("Fin de partie");
+                StreamWriter sw = new StreamWriter(fichierScores, true);
+                sw.WriteLine(PseudoUser + " : " + score + " / " + nbPlateau + "panneaux");
+                sw.Close();
+
+                imgLastCarte.Enabled = false;
+            }
+
         }
 
         private void imgCarte1_Click(object sender, EventArgs e)
@@ -475,11 +492,11 @@ namespace Pyramid
         }
         private void imgCarte28_Click(object sender, EventArgs e)
         {
-           ClickSurPlateau1(27);
+            ClickSurPlateau1(27);
         }
 
         public bool CanClick(int nbCarte)
-        {         
+        {
             switch (nbCarte)
             {
                 case 0:
@@ -616,7 +633,7 @@ namespace Pyramid
         private void button1_Click(object sender, EventArgs e)
         {
             PseudoUser = txtPseudoUser.Text;
-            if(txtPseudoUser.Text != "")
+            if (txtPseudoUser.Text != "")
             {
                 grpInfoUser.Visible = false;
                 cmdAfficherScores.Enabled = true;
@@ -732,7 +749,7 @@ namespace Pyramid
                 }
             }
 
-            if(turn == 1)
+            if (turn == 1)
             {
                 cmdSecondPlate.Text = 1.ToString();
             }
@@ -740,23 +757,23 @@ namespace Pyramid
             {
                 cmdSecondPlate.Text = 0.ToString();
             }
-            
-            if(cmdSecondPlate.Text == "0")
+
+            if (cmdSecondPlate.Text == "0")
             {
                 cmdSecondPlate.Enabled = false;
             }
         }
 
-        public void FinduPlateau()
+        private void FinduPlateau()
         {
-        
+
             PictureBox[] boxesCarte =
             {
                 imgCarte1, imgCarte2, imgCarte3, imgCarte4, imgCarte5, imgCarte6, imgCarte7, imgCarte8, imgCarte9, imgCarte10, imgCarte11,
                 imgCarte12, imgCarte13, imgCarte14, imgCarte15, imgCarte16, imgCarte17, imgCarte18, imgCarte19, imgCarte20, imgCarte21,
                 imgCarte22, imgCarte23, imgCarte24, imgCarte25, imgCarte26, imgCarte27, imgCarte28
             };
-            
+
             turn++;
             cmdNextCarte.Enabled = true;
 
@@ -796,7 +813,8 @@ namespace Pyramid
                 {
                     p.Visible = true;
                 }
-            }           
+            }
         }
     }
 }
+
