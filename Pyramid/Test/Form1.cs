@@ -287,6 +287,8 @@ namespace Pyramid
 
         public void ClickSurPlateau1(int nbCarte)
         {
+            int nbVisibleCard = 0;
+
             total = 0;
             total1 = 0;
             total2 = 0;
@@ -304,16 +306,7 @@ namespace Pyramid
             total2 = value3 + value4;
             bool clickVerif = CanClick(nbCarte);
             score = Int32.Parse(lblScore.Text);
-            /*
-            Console.WriteLine(Cartes.Count());
-            Console.WriteLine("t :" + total);
-            Console.WriteLine("t1 :" + total1);
-            Console.WriteLine("t2 :" + total2);
-            Console.WriteLine("v1 :" + value1);
-            Console.WriteLine("v2 :" + value2);
-            Console.WriteLine("v3 :" + value3);
-            Console.WriteLine("v4 :" + value4);
-            */
+
             if (value3 == 13 && clickVerif == false)
             {
                 boxesCarte.ElementAt(nbCarte).Visible = false;
@@ -355,6 +348,7 @@ namespace Pyramid
                 value4 = value3;
                 tempCarte = nbCarte;
             }
+<<<<<<< HEAD
 
             
             ScorePoints();
@@ -370,6 +364,23 @@ namespace Pyramid
 
             }
 
+=======
+ 
+            ScorePoints();
+
+            foreach (PictureBox p in boxesCarte)
+            {
+                if (p.Visible == false)
+                {
+                    nbVisibleCard++;
+                }
+            }
+
+            if (nbVisibleCard == 28)
+            {
+                FinduPlateau();
+            }
+>>>>>>> 3100961e599a39298227149323df6c2cc1cfb05a
         }
 
         private void imgCarte1_Click(object sender, EventArgs e)
@@ -752,6 +763,58 @@ namespace Pyramid
             {
                 cmdSecondPlate.Enabled = false;
             }
+        }
+
+        public void FinduPlateau()
+        {
+        
+            PictureBox[] boxesCarte =
+            {
+                imgCarte1, imgCarte2, imgCarte3, imgCarte4, imgCarte5, imgCarte6, imgCarte7, imgCarte8, imgCarte9, imgCarte10, imgCarte11,
+                imgCarte12, imgCarte13, imgCarte14, imgCarte15, imgCarte16, imgCarte17, imgCarte18, imgCarte19, imgCarte20, imgCarte21,
+                imgCarte22, imgCarte23, imgCarte24, imgCarte25, imgCarte26, imgCarte27, imgCarte28
+            };
+            
+            turn++;
+            cmdNextCarte.Enabled = true;
+
+            Cartes = CarteGenerator.getToutesCartes(0.5);
+            CartesCheckList = new List<Carte>();
+            UsedCarte = new List<Image>();
+            nbClickNextCard = 0;
+            i = 0;
+            tour = 3;
+
+            FirstTime = 0;
+
+            tempValue = 0;
+            tempCarte = 0;
+            value1 = 0;
+            value2 = 0;
+            value3 = 0;
+            value4 = 0;
+            total = 0;
+            total1 = 0;
+
+            firstRang = false;
+            secondRang = false;
+            thirtRang = false;
+            fourthRang = false;
+            fifthRang = false;
+            sixRang = false;
+            sevenRang = false;
+
+            MyPaint();
+
+            imgLastCarte.Visible = false;
+
+            foreach (PictureBox p in boxesCarte)
+            {
+                if (p.Visible == false)
+                {
+                    p.Visible = true;
+                }
+            }           
         }
     }
 }
