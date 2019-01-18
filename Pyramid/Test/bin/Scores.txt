@@ -1,2 +1,5 @@
 Filipe : 5000 / 4 panneaux
 Joao : 4000 / 3 panneaux
+Joseph : 5 / 4 panneaux
+Paul : 10 / 4 panneaux
+Paulito : 35 / 4 panneaux

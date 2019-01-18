@@ -356,8 +356,20 @@ namespace Pyramid
                 tempCarte = nbCarte;
             }
 
- 
+            
             ScorePoints();
+
+            if(cmdSecondPlate.Text == "0" && tour==0)
+            {
+                MessageBox.Show("Fin de partie");
+                StreamWriter sw = new StreamWriter(fichierScores, true);
+                sw.WriteLine(PseudoUser + " : " + score.ToString() + " / " + "4 panneaux");
+                sw.Close();
+
+                imgLastCarte.Enabled = false;
+
+            }
+
         }
 
         private void imgCarte1_Click(object sender, EventArgs e)
