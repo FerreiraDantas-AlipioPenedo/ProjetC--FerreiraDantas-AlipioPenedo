@@ -71,8 +71,6 @@ namespace Pyramid
                 imgCarte22, imgCarte23, imgCarte24, imgCarte25, imgCarte26, imgCarte27, imgCarte28
             };
 
-
-
             for (int i = 0; i < boxesCarte.Count(); i++)
             {
                 Shuffle(Cartes);
@@ -87,7 +85,6 @@ namespace Pyramid
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             grpInfoUser.Visible = true;
             if (grpInfoUser.Visible == true)
             {
@@ -98,7 +95,6 @@ namespace Pyramid
 
             imgLastCarte.Click += ClickOnCard;
             imgNouvelleCarte.Click += ClickOnCard;
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -108,7 +104,6 @@ namespace Pyramid
 
         private void cmdAfficherScores_Click(object sender, EventArgs e)
         {
-
             using (var reader = new StreamReader(fichierScores))
             {
 
@@ -127,7 +122,6 @@ namespace Pyramid
             cmdAfficherScores.Visible = false;
             cmdCacherScores.Visible = true;
             FirstTime++;
-
         }
 
         private void cmdCacherScores_Click(object sender, EventArgs e)
@@ -139,7 +133,6 @@ namespace Pyramid
 
         private void Shuffle<T>(List<T> list)
         {
-
             for (int i = 0; i < 100; i++)
             {
                 int index1 = rd.Next(0, list.Count);
@@ -209,6 +202,7 @@ namespace Pyramid
                 value1 = 0;
             }
         }
+
         private void imgNouvelleCarte_Click(object sender, EventArgs e)
         {
             score = Int32.Parse(lblScore.Text);
@@ -282,10 +276,6 @@ namespace Pyramid
         {
             ptb = sender as PictureBox;
         }
-        public void ClickSurPlateau(int nbCarte)
-        {
-
-        }
 
         public void ClickSurPlateau1(int nbCarte)
         {
@@ -323,7 +313,7 @@ namespace Pyramid
                 Cartes.RemoveAt(i - 2);
                 score += 5;
                 lblScore.Text = score.ToString();
-                //total = 0;
+                total = 0;
                 value3 = 0;
             }
             else if (total1 == 13 && clickVerif == false)
@@ -331,7 +321,7 @@ namespace Pyramid
                 boxesCarte.ElementAt(nbCarte).Visible = false;
                 imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
                 Cartes.RemoveAt(i - 1);
-                //total1 = 0;
+                total1 = 0;
                 value3 = 0;
                 score += 5;
                 lblScore.Text = score.ToString();
@@ -342,8 +332,9 @@ namespace Pyramid
                 boxesCarte.ElementAt(tempCarte).Visible = false;
                 score += 5;
                 lblScore.Text = score.ToString();
+                value3 = 0;
                 value4 = 0;
-                //total2 = 0;
+                total2 = 0;
             }
             else
             {
