@@ -14,6 +14,8 @@ namespace Pyramid
 {
     public partial class Form1 : Form
     {
+        //variables
+
         string fichierScores = @"..\Scores.txt";
         string pathCartes = @"..\Cartes.txt";
         Random rd = new Random();
@@ -52,6 +54,7 @@ namespace Pyramid
 
         PictureBox ptb = new PictureBox();
 
+        //end of variables
 
         public Form1()
         {
@@ -62,6 +65,8 @@ namespace Pyramid
         {
 
         }
+        
+        //  This function place de cards on the pyramid
         public void MyPaint()
         {
             PictureBox[] boxesCarte =
@@ -83,6 +88,7 @@ namespace Pyramid
             Shuffle(Cartes);
         }
 
+        // Ask the name of the user
         private void Form1_Load(object sender, EventArgs e)
         {
             grpInfoUser.Visible = true;
@@ -102,6 +108,7 @@ namespace Pyramid
 
         }
 
+        // this functions displays the score board on the click of the button
         private void cmdAfficherScores_Click(object sender, EventArgs e)
         {
             using (var reader = new StreamReader(fichierScores))
@@ -124,6 +131,7 @@ namespace Pyramid
             FirstTime++;
         }
 
+        //this function undisplays the score board on the click of the button
         private void cmdCacherScores_Click(object sender, EventArgs e)
         {
             lstScores.Visible = false;
@@ -131,6 +139,7 @@ namespace Pyramid
             cmdCacherScores.Visible = false;
         }
 
+        // this function permits to shuffle all types of lists 
         private void Shuffle<T>(List<T> list)
         {
             for (int i = 0; i < 100; i++)
@@ -143,6 +152,7 @@ namespace Pyramid
             }
         }
 
+        // this function shows the next card of the deck of the user and counts is tours (max tours of is deck = 3)
         private void cmdNextCarte_Click(object sender, EventArgs e)
         {
             nbClickNextCard++;
@@ -151,7 +161,6 @@ namespace Pyramid
                 imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
                 imgNouvelleCarte.Visible = true;
                 imgLastCarte.Visible = false;
-                //MessageBox.Show(Cartes.ElementAt(i).GetCarteValeur().ToString());
                 i++;
             }
             else
@@ -163,7 +172,6 @@ namespace Pyramid
                     imgNouvelleCarte.Image = Cartes.ElementAt(i).GetImage();
                     imgLastCarte.Visible = true;
                     i++;
-                    //MessageBox.Show(Cartes.ElementAt(i).GetCarteValeur().ToString());
                 }
                 else
                 {
@@ -183,6 +191,8 @@ namespace Pyramid
             }
         }
 
+        //this function gets the value of the last card displayed and elininates it
+        // if the pair addition is = 13 and if its a king card
         private void imgLastCarte_Click(object sender, EventArgs e)
         {
             score = Int32.Parse(lblScore.Text);
@@ -190,8 +200,6 @@ namespace Pyramid
             {
                 value1 = Cartes.ElementAt(i - 2).GetCarteValeur();
             }
-
-            //MessageBox.Show(value1.ToString());
 
             if (value1 == 13)
             {
@@ -203,6 +211,7 @@ namespace Pyramid
             }
         }
 
+        // does the same as the last function but on the new card displayed from the user deck
         private void imgNouvelleCarte_Click(object sender, EventArgs e)
         {
             score = Int32.Parse(lblScore.Text);
@@ -210,7 +219,6 @@ namespace Pyramid
             {
                 value2 = Cartes.ElementAt(i - 1).GetCarteValeur();
             }
-            //MessageBox.Show(value2.ToString());
 
             if (value2 == 13)
             {
@@ -221,6 +229,8 @@ namespace Pyramid
                 value2 = 0;
             }
         }
+
+        // this funciton creates a new game on the click of the button "Nouvelle Partie"
         private void cmdNouvellePartie_Click(object sender, EventArgs e)
         {
             PictureBox[] boxesCarte =
@@ -277,6 +287,7 @@ namespace Pyramid
             ptb = sender as PictureBox;
         }
 
+        // this function manages the clicks on a card from the displayed pyramid 
         public void ClickSurPlateau1(int nbCarte)
         {
             int nbVisibleCard = 0;
@@ -373,6 +384,7 @@ namespace Pyramid
 
         }
 
+        //All this function call the function above with the number of the clicked PictureBox
         private void imgCarte1_Click(object sender, EventArgs e)
         {
             ClickSurPlateau1(0);
@@ -486,6 +498,7 @@ namespace Pyramid
             ClickSurPlateau1(27);
         }
 
+        // this function manages if the user can or can not click on the cards displayed on the pyramid
         public bool CanClick(int nbCarte)
         {
             switch (nbCarte)
@@ -621,6 +634,8 @@ namespace Pyramid
             return false;
         }
 
+        // this function containts the code to ask the user name and call the function MyPaint()
+        // once the user have insert an allowed name 
         private void button1_Click(object sender, EventArgs e)
         {
             PseudoUser = txtPseudoUser.Text;
@@ -638,6 +653,7 @@ namespace Pyramid
             }
         }
 
+        // this function adds score points to the user score once he eliminates an entier line of cards
         private void ScorePoints()
         {
             if (imgCarte22.Visible == false && imgCarte23.Visible == false && imgCarte24.Visible == false && imgCarte25.Visible == false && imgCarte26.Visible == false && imgCarte27.Visible == false && imgCarte28.Visible == false && firstRang == false)
@@ -690,6 +706,7 @@ namespace Pyramid
             }
         }
 
+        // this function displays a new pyramid and give a new deck of cards to the user on the click of the button "2" or "1"
         private void cmdSecondPlate_Click(object sender, EventArgs e)
         {
             turn++;
@@ -754,6 +771,7 @@ namespace Pyramid
                 cmdSecondPlate.Enabled = false;
             }
         }
+
 
         private void FinduPlateau()
         {
